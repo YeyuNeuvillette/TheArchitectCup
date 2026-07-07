@@ -32,9 +32,6 @@ public sealed class BurnTheMountainPower : BasePower
         if (card.Owner != Owner.Player)
             return false;
 
-        if (card.Type == CardType.Power)
-            return false;
-
         return keywords.Add(CardKeyword.Exhaust);
     }
 
@@ -43,9 +40,6 @@ public sealed class BurnTheMountainPower : BasePower
         PileType pileType, CardPilePosition position)
     {
         if (card.Owner.Creature != Owner)
-            return (pileType, position);
-
-        if (card.Type == CardType.Power)
             return (pileType, position);
 
         return (PileType.Exhaust, position);
