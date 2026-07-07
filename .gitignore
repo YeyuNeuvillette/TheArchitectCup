@@ -1,0 +1,11 @@
+.godot/
+.export/
+.vscode/
+.vs/
+bin/
+obj/
+*.pck
+local.props
+TheArchitectCup/images/
+.trae/
+TheArchitectCup/voice/music/

@@ -1,0 +1,20 @@
+{
+    "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING.title": "Earth-Shattering",
+    "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING.description": "[gold]Transform[/gold] all Attack cards in all players' [gold]hands[/gold] into {IfUpgraded:show:[gold]Giant Rock+[/gold]|[gold]Giant Rock[/gold]}.",
+    "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.title": "Generous Donation (Really Generous!)",
+    "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.description": "Choose {IfUpgraded:show:any|a} card from your [gold]hand[/gold], then put it into a teammate's [gold]hand[/gold].",
+    "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE.title": "Three-Legged Race",
+    "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE.description": "Designate another player. You and they each draw {Cards:diff()} cards. This turn, whenever they/you gain/use Energy, you/they draw/discard that many cards.",
+    "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN.title": "Burn the Mountain",
+    "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN.description": "All cards played by all players are [gold]Exhausted[/gold]. Add a {IfUpgraded:show:[gold]Upgraded[/gold] |}random card of a different character to the hand.",
+    "THE_ARCHITECT_CUP_CARD_PING_PONG.title": "Ping Pong",
+    "THE_ARCHITECT_CUP_CARD_PING_PONG.description": "This turn, whenever another player plays a card that costs 0{energyPrefix:energyIcons(1)}, play the animation of {IfUpgraded:show:[gold]Bouncing Flask+[/gold]|[gold]Bouncing Flask[/gold]} once.",
+    "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN.title": "Bee Bro on the Run",
+    "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN.description": "Apply 1 [gold]Personal Hive[/gold] and 10 [gold]Slow[/gold] to all enemies.",
+    "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF.title": "Cursed Handkerchief",
+    "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF.description": "You must play this card first.\nWhen a player plays 7 cards in a single turn, this card costs 1 more this turn and is put into their hand.",
+    "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.title": "Find Someone to Get You",
+    "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.description": "{IfUpgraded:show:At the start of your turn, move to hand.\n|}This turn, a teammate gains: each time the same card is played, add a [gold]Human[/gold] to hand.",
+    "THE_ARCHITECT_CUP_CARD_HUMAN.title": "Human",
+    "THE_ARCHITECT_CUP_CARD_HUMAN.description": "Lose {HpLoss:diff()} HP."
+}

@@ -1,0 +1,45 @@
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using STS2RitsuLib.Interop.AutoRegistration;
+using TheArchitectCup.Characters.TheArchitectCup.Powers;
+
+namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
+
+[RegisterCard(typeof(SilentCardPool))]
+public sealed class ThreeLeggedRace() : ArchitectCupCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyAlly)
+{
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DynamicVar("Cards", 1m)
+    ];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Target == null || cardPlay.Target.Player == null)
+            return;
+
+        Player targetPlayer = cardPlay.Target.Player;
+        int drawCount = (int)DynamicVars["Cards"].BaseValue;
+
+        await CardPileCmd.Draw(choiceContext, drawCount, Owner);
+        await CardPileCmd.Draw(choiceContext, drawCount, targetPlayer);
+
+        ThreeLeggedRacePower? power = await PowerCmd.Apply<ThreeLeggedRacePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        if (power != null)
+        {
+            power.SetTeammate(targetPlayer.Creature);
+            power.RegisterListener();
+        }
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars["Cards"].UpgradeValueBy(1m);
+    }
+}

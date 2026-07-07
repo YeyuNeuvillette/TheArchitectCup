@@ -1,0 +1,7 @@
+{
+    "THE_ARCHITECT_CUP_POWER_THREE_LEGGED_RACE_POWER.title": "二人三脚",
+    "THE_ARCHITECT_CUP_POWER_THREE_LEGGED_RACE_POWER.description": "このターン、そのプレイヤー/あなたがエナジーを獲得/消費するたび、あなた/そのプレイヤーは同数のカードをドロー/捨てる。",
+    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.title": "放火焼山",
+    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.description": "あなたがプレイしたカードは消耗される。異なるキャラクターのランダムなカード1枚を手札に加える。",
+    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.smartDescription": "あなたがプレイしたカードは消耗される。異なるキャラクターのランダムなカード1枚を手札に加える{IfUpgraded:show:[gold]アップグレード済み[/gold]|}。"
+}

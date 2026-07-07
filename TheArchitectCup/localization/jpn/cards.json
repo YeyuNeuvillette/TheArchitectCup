@@ -1,0 +1,20 @@
+{
+    "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING.title": "石破天驚",
+    "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING.description": "すべてのプレイヤーの[gold]手札[/gold]にある攻撃カードを[gold]変化[/gold]させ、{IfUpgraded:show:[gold]大岩+[/gold]|[gold]大岩[/gold]}にする。",
+    "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.title": "気前の良い寄付（本当に気前が良い！）",
+    "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.description": "[gold]手札[/gold]から{IfUpgraded:show:任意の|1枚の}カードを選び、味方1人の[gold]手札[/gold]に加える。",
+    "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE.title": "二人三脚",
+    "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE.description": "他のプレイヤー1人を指定する。あなたとそのプレイヤーはそれぞれ{Cards:diff()}枚ドローする。このターン、そのプレイヤー/あなたがエナジーを獲得/消費するたび、あなた/そのプレイヤーは同数のカードをドロー/捨てる。",
+    "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN.title": "山を焼き払え",
+    "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN.description": "すべてのプレイヤーがプレイしたカードは[gold]消耗[/gold]される。{IfUpgraded:show:[gold]アップグレード済みの[/gold]|}異なるキャラクターのランダムなカード1枚を手札に加える。",
+    "THE_ARCHITECT_CUP_CARD_PING_PONG.title": "ピンポンパン",
+    "THE_ARCHITECT_CUP_CARD_PING_PONG.description": "このターン、他のプレイヤーがコスト0{energyPrefix:energyIcons(1)}のカードをプレイするたび、{IfUpgraded:show:[gold]跳ねる薬瓶+[/gold]|[gold]跳ねる薬瓶[/gold]}のアニメーションを1回再生する。",
+    "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN.title": "蜂兄の逃亡",
+    "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN.description": "すべての敵に[gold]人体蜂の巣[/gold]1と[gold]緩慢[/gold]10を付与する。",
+    "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF.title": "呪いのハンカチ",
+    "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF.description": "このカードを最優先でプレイしなければならない。\n1ターンの間に1人のプレイヤーが7枚のカードをプレイした場合、このカードはこのターン中コストが1増加し、そのプレイヤーの手札に加えられる。",
+    "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.title": "誰かにやってもらおう",
+    "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.description": "{IfUpgraded:show:ターン開始時、手札に移動する。\n|}このターン、味方1人が以下の効果を得る：同じカードがプレイされるたび、[gold]人間[/gold]1枚を手札に加える。",
+    "THE_ARCHITECT_CUP_CARD_HUMAN.title": "人",
+    "THE_ARCHITECT_CUP_CARD_HUMAN.description": "{HpLoss:diff()}HPを失う。"
+}
