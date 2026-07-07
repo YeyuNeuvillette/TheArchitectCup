@@ -78,21 +78,21 @@ public sealed class PingPongPower : BasePower
             {
                 NItemThrowVfx? throwVfx = NItemThrowVfx.Create(lastPos, targetNode.GetBottomOfHitbox(), ModelDb.Potion<PoisonPotion>().Image);
                 if (throwVfx != null)
-                    NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(throwVfx);
+                    combatRoom.CombatVfxContainer.AddChildSafely(throwVfx);
                 lastPos = targetNode.VfxSpawnPosition;
                 await Cmd.Wait(0.5f);
 
                 NSplashVfx? splashVfx = NSplashVfx.Create(targetNode.VfxSpawnPosition, _vfxTint);
                 if (splashVfx != null)
-                    NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(splashVfx);
+                    combatRoom.CombatVfxContainer.AddChildSafely(splashVfx);
 
                 NLiquidOverlayVfx? liquidVfx = NLiquidOverlayVfx.Create(enemy, _vfxTint);
                 if (liquidVfx != null)
-                    NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(liquidVfx);
+                    combatRoom.CombatVfxContainer.AddChildSafely(liquidVfx);
 
                 NGaseousImpactVfx? impactVfx = NGaseousImpactVfx.Create(targetNode.VfxSpawnPosition, _vfxTint);
                 if (impactVfx != null)
-                    NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(impactVfx);
+                    combatRoom.CombatVfxContainer.AddChildSafely(impactVfx);
             }
         }
     }
