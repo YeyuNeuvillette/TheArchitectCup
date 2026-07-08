@@ -3,5 +3,7 @@
     "THE_ARCHITECT_CUP_POWER_THREE_LEGGED_RACE_POWER.description": "本回合其/你获得/使用能量后，你/其抽取/弃置等量的牌。",
     "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.title": "放火烧山",
     "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.description": "你打出的牌会被消耗，并向手牌中置入一张不同角色的随机牌。",
-    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.smartDescription": "你打出的牌会被消耗，并向手牌中置入一张{IfUpgraded:show:[gold]升级后的[/gold]|}不同角色的随机牌。"
+    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.smartDescription": "你打出的牌会被消耗，并向手牌中置入一张{IfUpgraded:show:[gold]升级后的[/gold]|}不同角色的随机牌。",
+    "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.title": "找人弄你",
+    "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.description": "每打出过一次相同的卡牌，就将一张[gold]人[/gold]置入手牌。"
 }
