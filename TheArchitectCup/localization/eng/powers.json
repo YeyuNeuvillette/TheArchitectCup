@@ -3,5 +3,7 @@
     "THE_ARCHITECT_CUP_POWER_THREE_LEGGED_RACE_POWER.description": "This turn, whenever they/you gain/use Energy, you/they draw/discard that many cards.",
     "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.title": "Burn the Mountain",
     "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.description": "Your cards are Exhausted when played. Add a random card from a different character into hand.",
-    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.smartDescription": "Your cards are Exhausted when played. Add a random card from a different character into hand{IfUpgraded:show: [gold]upgraded[/gold]|}."
+    "THE_ARCHITECT_CUP_POWER_BURN_THE_MOUNTAIN_POWER.smartDescription": "Your cards are Exhausted when played. Add a random card from a different character into hand{IfUpgraded:show: [gold]upgraded[/gold]|}.",
+    "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.title": "Find Someone to Get You",
+    "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.description": "Whenever you play the same card again, add a [gold]Human[/gold] to your hand."
 }

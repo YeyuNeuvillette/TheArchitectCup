@@ -23,7 +23,11 @@ public sealed class BeeBroOnTheRun() : ArchitectCupCard(2, CardType.Power, CardR
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        foreach (Creature enemy in base.CombatState.HittableEnemies)
+        var combatState = CombatState;
+        if (combatState == null)
+            return;
+
+        foreach (Creature enemy in combatState.HittableEnemies)
         {
             await PowerCmd.Apply<PersonalHivePower>(choiceContext, enemy, DynamicVars["PersonalHivePower"].BaseValue, base.Owner.Creature, this);
             await PowerCmd.Apply<SlowPower>(choiceContext, enemy, DynamicVars["SlowPower"].BaseValue, base.Owner.Creature, this);

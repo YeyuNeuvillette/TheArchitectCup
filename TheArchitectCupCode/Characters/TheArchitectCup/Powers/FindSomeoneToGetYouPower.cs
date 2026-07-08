@@ -17,7 +17,7 @@ public sealed class FindSomeoneToGetYouPower : BasePower
 {
     private class Data
     {
-        public required HashSet<CardModel> recordedCards;
+        public required HashSet<ModelId> recordedCardIds;
     }
 
     public override PowerType Type => PowerType.Debuff;
@@ -28,7 +28,7 @@ public sealed class FindSomeoneToGetYouPower : BasePower
     {
         return new Data()
         {
-            recordedCards = new HashSet<CardModel>()
+            recordedCardIds = new HashSet<ModelId>()
         };
     }
 
@@ -37,7 +37,7 @@ public sealed class FindSomeoneToGetYouPower : BasePower
         if (cardPlay.Card.Owner?.Creature != Owner)
             return;
 
-        if (GetInternalData<Data>().recordedCards.Contains(cardPlay.Card))
+        if (GetInternalData<Data>().recordedCardIds.Contains(cardPlay.Card.Id))
         {
             Player? player = cardPlay.Card.Owner;
             if (player == null)
@@ -47,7 +47,7 @@ public sealed class FindSomeoneToGetYouPower : BasePower
         }
         else
         {
-            GetInternalData<Data>().recordedCards.Add(cardPlay.Card);
+            GetInternalData<Data>().recordedCardIds.Add(cardPlay.Card.Id);
         }
     }
 
@@ -55,7 +55,7 @@ public sealed class FindSomeoneToGetYouPower : BasePower
     {
         if (participants.Contains(Owner))
         {
-            GetInternalData<Data>().recordedCards.Clear();
+            GetInternalData<Data>().recordedCardIds.Clear();
             await PowerCmd.Remove(this);
         }
     }
