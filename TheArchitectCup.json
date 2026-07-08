@@ -1,8 +1,8 @@
 {
     "id": "TheArchitectCup", 
-    "name": "The Architect Cup", 
+    "name": "The Architect Cup Anthology", 
     "author": "叶羽", 
-    "description": "A mod for Slay the Spire 2.", 
+    "description": "A curated collection of fan-made cards from the Architect Cup weekly design contests.", 
     "version": "0.1.0-beta", 
     "has_pck": true, 
     "has_dll": true, 

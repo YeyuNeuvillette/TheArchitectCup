@@ -2,6 +2,8 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -12,6 +14,10 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 [RegisterCard(typeof(ColorlessCardPool))]
 public sealed class BeeBroOnTheRun() : ArchitectCupCard(2, CardType.Power, CardRarity.Rare, TargetType.AllEnemies)
 {
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "阿迪")
+    ];
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
         CardKeyword.Innate
     ];

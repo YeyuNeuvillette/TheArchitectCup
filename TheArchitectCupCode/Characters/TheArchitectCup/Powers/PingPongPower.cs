@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
@@ -9,6 +10,8 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Nodes.Combat;
@@ -26,13 +29,18 @@ public sealed class PingPongPower : BasePower
 
     public override PowerStackType StackType => PowerStackType.Single;
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new IfUpgradedVar(IsUpgraded ? UpgradeDisplay.Upgraded : UpgradeDisplay.Normal)
+    ];
+
     public bool IsUpgraded { get; set; }
 
     private readonly Color _vfxTint = new Color("83eb85");
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner?.Creature == Owner)
+        if (cardPlay.Card.Owner?.Creature != Owner)
             return;
 
         if (cardPlay.Card.EnergyCost.GetResolved() != 0)

@@ -4,7 +4,11 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using STS2RitsuLib;
+using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop;
+using TheArchitectCup.Characters.TheArchitectCup;
+using TheArchitectCup.Extensions;
+using TheArchitectCup.Settings;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace TheArchitectCup;
@@ -25,6 +29,20 @@ public partial class MainFile : Node
 
         Harmony harmony = new(ModId);
         harmony.PatchAll();
+
+        CardSettingsPage.Register();
+
+        ModContentRegistry.For(ModId)
+            .RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupCompendiumPool>(
+                "ARCHITECT_CUP_COMPENDIUM",
+                "ui/the_architect_cup_one.png".ImagePath(),
+                [
+                    new()
+                    {
+                        VanillaFilterAnchorUniqueName = CardLibraryCompendiumVanillaFilterNames.ColorlessPool,
+                        Relation = CardLibraryCompendiumFilterInsertRelation.After,
+                    },
+                ]);
 
         Logger.Info("TheArchitectCup mod initialized successfully");
     }

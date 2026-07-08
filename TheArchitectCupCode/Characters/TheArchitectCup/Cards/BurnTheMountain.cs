@@ -2,6 +2,8 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using TheArchitectCup.Characters.TheArchitectCup.Powers;
@@ -11,6 +13,11 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 [RegisterCard(typeof(IroncladCardPool))]
 public sealed class BurnTheMountain() : ArchitectCupCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "BlueGhost"),
+        new HoverTip(new LocString("static_hover_tips", "CHAMPION.title"), new LocString("static_hover_tips", "CHAMPION.description"))
+    ];
+
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
