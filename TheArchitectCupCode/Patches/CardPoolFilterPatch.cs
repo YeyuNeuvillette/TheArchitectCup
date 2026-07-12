@@ -3,6 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
 using TheArchitectCup.Settings;
 
@@ -25,6 +26,16 @@ public static class CardPoolFilterPatch
 
     static void Postfix(CardPoolModel __instance, UnlockState unlockState, CardMultiplayerConstraint multiplayerConstraint, ref IEnumerable<CardModel> __result)
     {
+        if (multiplayerConstraint == CardMultiplayerConstraint.MultiplayerOnly)
+        {
+            var runState = RunManager.Instance.DebugOnlyGetState();
+            if (runState != null)
+            {
+                __result = __result.Where(c => !ManagedCardIds.Contains(c.Id.Entry) || CardSettingsPage.IsCardEnabled(c.Id.Entry, runState));
+                return;
+            }
+        }
+
         __result = __result.Where(c => !ManagedCardIds.Contains(c.Id.Entry) || CardSettingsPage.IsCardEnabled(c.Id.Entry));
     }
 }

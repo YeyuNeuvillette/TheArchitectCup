@@ -32,6 +32,9 @@ public partial class MainFile : Node
 
         CardSettingsPage.Register();
 
+        RitsuLibFramework.SubscribeLifecycle<RunStartedEvent>(OnRunStarted);
+        RitsuLibFramework.SubscribeLifecycle<RunLoadedEvent>(OnRunLoaded);
+
         ModContentRegistry.For(ModId)
             .RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupCompendiumPool>(
                 "ARCHITECT_CUP_COMPENDIUM",
@@ -45,5 +48,18 @@ public partial class MainFile : Node
                 ]);
 
         Logger.Info("TheArchitectCup mod initialized successfully");
+    }
+
+    private static void OnRunStarted(RunStartedEvent e)
+    {
+        CardSettingsPage.SyncLocalSettingsToRunState(e.RunState);
+    }
+
+    private static void OnRunLoaded(RunLoadedEvent e)
+    {
+        if (!e.IsMultiplayer)
+            CardSettingsPage.SyncLocalSettingsToRunState(e.RunState);
+        else if (!CardSettingsPage.HasSyncedSettings(e.RunState))
+            CardSettingsPage.SyncLocalSettingsToRunState(e.RunState);
     }
 }

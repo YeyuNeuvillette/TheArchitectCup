@@ -14,6 +14,8 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 [RegisterCard(typeof(ColorlessCardPool))]
 public sealed class BeeBroOnTheRun() : ArchitectCupCard(2, CardType.Power, CardRarity.Rare, TargetType.AllEnemies)
 {
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "阿迪")
     ];

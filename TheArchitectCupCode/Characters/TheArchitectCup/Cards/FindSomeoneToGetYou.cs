@@ -15,6 +15,8 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 [RegisterCard(typeof(ColorlessCardPool))]
 public sealed class FindSomeoneToGetYou() : ArchitectCupCard(0, CardType.Skill, CardRarity.Common, TargetType.AnyAlly)
 {
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "花盆上屹立的不明食草兽")
     ];

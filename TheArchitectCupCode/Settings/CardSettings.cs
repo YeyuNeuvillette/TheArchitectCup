@@ -1,5 +1,7 @@
+using MegaCrit.Sts2.Core.Runs;
 using STS2RitsuLib;
 using STS2RitsuLib.Data;
+using STS2RitsuLib.RunData;
 using STS2RitsuLib.Settings;
 using STS2RitsuLib.Utils.Persistence;
 
@@ -20,6 +22,7 @@ public sealed class CardSettingsData
 public static class CardSettingsPage
 {
     private const string DataKey = "card_settings";
+    private const string RunSavedDataKey = "card_settings_sync";
     private const string Table = "settings_ui";
 
     private static readonly ModSettingsValueBinding<CardSettingsData, bool> CursedHandkerchiefBinding = new(
@@ -61,6 +64,12 @@ public static class CardSettingsPage
         MainFile.ModId, DataKey, SaveScope.Global,
         static s => s.BeeBroOnTheRunEnabled,
         static (s, v) => s.BeeBroOnTheRunEnabled = v);
+
+    private static readonly RunSavedData<CardSettingsData> RunSavedCardSettings =
+        RunSavedDataStore.For(MainFile.ModId).Register<CardSettingsData>(
+            key: RunSavedDataKey,
+            defaultFactory: () => new CardSettingsData(),
+            options: new RunSavedDataOptions { WritePolicy = RunSavedDataWritePolicy.AlwaysWhenRegistered });
 
     public static void Register()
     {
@@ -124,4 +133,46 @@ public static class CardSettingsPage
         "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN" => BeeBroOnTheRunBinding.Read(),
         _ => true
     };
+
+    public static bool IsCardEnabled(string cardId, RunState runState)
+    {
+        if (RunSavedCardSettings.TryGet(runState, out var synced))
+            return IsCardEnabledFromData(cardId, synced);
+
+        return IsCardEnabled(cardId);
+    }
+
+    private static bool IsCardEnabledFromData(string cardId, CardSettingsData data) => cardId switch
+    {
+        "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF" => data.CursedHandkerchiefEnabled,
+        "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE" => data.ThreeLeggedRaceEnabled,
+        "THE_ARCHITECT_CUP_CARD_PING_PONG" => data.PingPongEnabled,
+        "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION" => data.GenerousDonationEnabled,
+        "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU" => data.FindSomeoneToGetYouEnabled,
+        "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING" => data.EarthShatteringEnabled,
+        "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN" => data.BurnTheMountainEnabled,
+        "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN" => data.BeeBroOnTheRunEnabled,
+        _ => true
+    };
+
+    public static void SyncLocalSettingsToRunState(RunState runState)
+    {
+        var data = new CardSettingsData
+        {
+            CursedHandkerchiefEnabled = CursedHandkerchiefBinding.Read(),
+            ThreeLeggedRaceEnabled = ThreeLeggedRaceBinding.Read(),
+            PingPongEnabled = PingPongBinding.Read(),
+            GenerousDonationEnabled = GenerousDonationBinding.Read(),
+            FindSomeoneToGetYouEnabled = FindSomeoneToGetYouBinding.Read(),
+            EarthShatteringEnabled = EarthShatteringBinding.Read(),
+            BurnTheMountainEnabled = BurnTheMountainBinding.Read(),
+            BeeBroOnTheRunEnabled = BeeBroOnTheRunBinding.Read(),
+        };
+        RunSavedCardSettings.Set(runState, data);
+    }
+
+    public static bool HasSyncedSettings(RunState runState)
+    {
+        return RunSavedCardSettings.TryGet(runState, out _);
+    }
 }
