@@ -1,0 +1,41 @@
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Models;
+using STS2RitsuLib.Interop.AutoRegistration;
+using TheArchitectCup.Characters.Base;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Entities.Cards;
+
+namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
+
+[RegisterPower]
+public class PressForwardPower : BasePower
+{
+    public override PowerType Type => PowerType.Buff;
+
+    public override PowerStackType StackType => PowerStackType.Single;
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromCard<SovereignBlade>()
+    ];
+
+    public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
+    {
+        if (card.Owner.Creature != Owner || Owner.Player == null)
+        {
+            return true;
+        }
+
+        if (card is SovereignBlade)
+        {
+            return true;
+        }
+
+        if (autoPlayType != AutoPlayType.None)
+        {
+            return true;
+        }
+
+        return !PileType.Hand.GetPile(Owner.Player).Cards.Any(card => card is SovereignBlade);
+    }
+}
