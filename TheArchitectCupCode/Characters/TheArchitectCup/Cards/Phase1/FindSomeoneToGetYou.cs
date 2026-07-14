@@ -18,7 +18,8 @@ public sealed class FindSomeoneToGetYou() : ArchitectCupCard(0, CardType.Skill, 
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "花盆上屹立的不明食草兽")
+        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "花盆上屹立的不明食草兽"),
+        HoverTipFactory.FromCard<Human>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

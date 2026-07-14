@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 using STS2RitsuLib.Interop.AutoRegistration;
 using TheArchitectCup.Characters.TheArchitectCup.Powers;
 
@@ -15,7 +16,8 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 public sealed class PingPong() : ArchitectCupCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyAlly)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "小肥")
+        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "小肥"),
+        HoverTipFactory.FromCard<BouncingFlask>(IsUpgraded)
     ];
 
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
