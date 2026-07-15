@@ -17,7 +17,9 @@ public sealed class BeeBroOnTheRun() : ArchitectCupCard(2, CardType.Power, CardR
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "阿迪")
+        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "阿迪"),
+        HoverTipFactory.FromPower<PersonalHivePower>(),
+        HoverTipFactory.FromPower<SlowPower>()
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
