@@ -26,11 +26,6 @@ public sealed class PressForward() : ArchitectCupCard(1, CardType.Power, CardRar
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "PowerUp", Owner.Character.PowerUpAnimDelay);
-        foreach (CardModel item in Owner.PlayerCombatState.AllCards.OfType<SovereignBlade>())
-        {
-            CardCmd.Upgrade(item);
-            CardCmd.Preview(item);
-        }
         await PowerCmd.Apply<PressForwardPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
     }
 

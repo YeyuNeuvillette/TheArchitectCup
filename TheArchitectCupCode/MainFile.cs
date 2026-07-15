@@ -35,17 +35,27 @@ public partial class MainFile : Node
         RitsuLibFramework.SubscribeLifecycle<RunStartedEvent>(OnRunStarted);
         RitsuLibFramework.SubscribeLifecycle<RunLoadedEvent>(OnRunLoaded);
 
-        ModContentRegistry.For(ModId)
-            .RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupCompendiumPool>(
-                "ARCHITECT_CUP_COMPENDIUM",
-                "ui/the_architect_cup_one.png".ImagePath(),
-                [
-                    new()
-                    {
-                        VanillaFilterAnchorUniqueName = CardLibraryCompendiumVanillaFilterNames.ColorlessPool,
-                        Relation = CardLibraryCompendiumFilterInsertRelation.After,
-                    },
-                ]);
+        var registry = ModContentRegistry.For(ModId);
+        registry.RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupCompendiumPool>(
+            "ARCHITECT_CUP_COMPENDIUM",
+            "ui/the_architect_cup_one.png".ImagePath(),
+            [
+                new()
+                {
+                    VanillaFilterAnchorUniqueName = CardLibraryCompendiumVanillaFilterNames.ColorlessPool,
+                    Relation = CardLibraryCompendiumFilterInsertRelation.After,
+                },
+            ]);
+        registry.RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupPhase2Pool>(
+            "ARCHITECT_CUP_PHASE2",
+            "ui/the_architect_cup_two.png".ImagePath(),
+            [
+                new()
+                {
+                    VanillaFilterAnchorUniqueName = CardLibraryCompendiumVanillaFilterNames.ColorlessPool,
+                    Relation = CardLibraryCompendiumFilterInsertRelation.After,
+                },
+            ]);
 
         Logger.Info("TheArchitectCup mod initialized successfully");
     }

@@ -16,5 +16,15 @@
     "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.title": "Find Someone to Get You",
     "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.description": "{IfUpgraded:show:At the start of your turn, move to hand.\n|}This turn, a teammate gains: each time the same card is played, add a [gold]Human[/gold] to hand.",
     "THE_ARCHITECT_CUP_CARD_HUMAN.title": "Human",
-    "THE_ARCHITECT_CUP_CARD_HUMAN.description": "Lose {HpLoss:diff()} HP."
+    "THE_ARCHITECT_CUP_CARD_HUMAN.description": "Lose {HpLoss:diff()} HP.",
+  "THE_ARCHITECT_CUP_CARD_COUPLING.title": "Coupling",
+  "THE_ARCHITECT_CUP_CARD_COUPLING.description": "Whenever you [blue]Evoke[/blue] an orb, trigger the passive of all remaining orbs.",
+  "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.title": "Press Forward",
+  "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.description": "Upgrade your [gold]Sovereign Blade[/gold]. Whenever [gold]Sovereign Blade[/gold] is in your hand, you must [gold]play[/gold] it first.",
+  "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.title": "Like Shadow",
+  "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.description": "[gold]Play[/gold] the last card that entered the [gold]discard pile[/gold].",
+  "THE_ARCHITECT_CUP_CARD_AGITATION.title": "Agitation",
+  "THE_ARCHITECT_CUP_CARD_AGITATION.description": "Gain {Energy:energyIcons()}. This turn, you can only play the highest-cost card.",
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.title": "Vakuu Teaches You to Play",
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "If you play cards from left to right in any turn, [gold]retain[/gold] all your [gold]Block[/gold] and [gold]hand[/gold] that turn."
 }

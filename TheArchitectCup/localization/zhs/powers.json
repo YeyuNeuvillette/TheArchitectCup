@@ -7,5 +7,13 @@
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.title": "找人弄你",
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.description": "每打出过一次相同的卡牌，就将一张[gold]人[/gold]置入手牌。",
     "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.title": "乒乒乓乓",
-    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "持有者每打出一张0费牌，对其随机敌人造成{IfUpgraded:show:4|3}次弹跳特效。回合结束时移除。"
+    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "持有者每打出一张0费牌，对其随机敌人造成{IfUpgraded:show:4|3}次弹跳特效。回合结束时移除。",
+  "THE_ARCHITECT_CUP_POWER_COUPLING_POWER.title": "耦合",
+  "THE_ARCHITECT_CUP_POWER_COUPLING_POWER.description": "每当你[gold]激发[/gold]充能球时，触发剩余所有充能球的被动{Amount}次。",
+  "THE_ARCHITECT_CUP_POWER_PRESS_FORWARD_POWER.title": "决进",
+  "THE_ARCHITECT_CUP_POWER_PRESS_FORWARD_POWER.description": "升级你的[gold]君王之剑[/gold]。每当[gold]君王之剑[/gold]在你的手牌中，你必须优先[gold]打出[/gold][gold]君王之剑[/gold]。",
+  "THE_ARCHITECT_CUP_POWER_AGITATION_POWER.title": "焦躁",
+  "THE_ARCHITECT_CUP_POWER_AGITATION_POWER.description": "这个回合，你只能打出耗能最高的牌。",
+  "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title": "瓦库教你打整局",
+  "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.description": "如果你按从左到右的顺序出牌，本回合[gold]保留[/gold]你的所有[gold]格挡[/gold]和[gold]手牌[/gold]。"
 }

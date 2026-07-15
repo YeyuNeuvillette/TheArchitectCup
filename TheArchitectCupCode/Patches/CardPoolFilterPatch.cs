@@ -21,7 +21,12 @@ public static class CardPoolFilterPatch
         "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU",
         "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING",
         "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN",
-        "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN"
+        "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN",
+        "THE_ARCHITECT_CUP_CARD_COUPLING",
+        "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD",
+        "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY",
+        "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW",
+        "THE_ARCHITECT_CUP_CARD_AGITATION"
     ];
 
     static void Postfix(CardPoolModel __instance, UnlockState unlockState, CardMultiplayerConstraint multiplayerConstraint, ref IEnumerable<CardModel> __result)

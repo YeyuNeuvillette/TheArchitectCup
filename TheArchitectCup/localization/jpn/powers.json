@@ -7,5 +7,13 @@
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.title": "誰かを探してやる",
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.description": "同じカードをもう一度プレイするたび、[gold]人[/gold]1枚を手札に加える。",
     "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.title": "ピンポンパン",
-    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "所持者が0コストのカードをプレイするたび、ランダムな敵に{IfUpgraded:show:4|3}回弾跳エフェクト。ターン終了時に除去される。"
+    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "所持者が0コストのカードをプレイするたび、ランダムな敵に{IfUpgraded:show:4|3}回弾跳エフェクト。ターン終了時に除去される。",
+  "THE_ARCHITECT_CUP_POWER_COUPLING_POWER.title": "結合",
+  "THE_ARCHITECT_CUP_POWER_COUPLING_POWER.description": "オーブを[blue]発動[/blue]するたび、残りのすべてのオーブの受動効果を{Amount}回発動する。",
+  "THE_ARCHITECT_CUP_POWER_PRESS_FORWARD_POWER.title": "決進",
+  "THE_ARCHITECT_CUP_POWER_PRESS_FORWARD_POWER.description": "[gold]君主の剣[/gold]をアップグレードする。[gold]君主の剣[/gold]が手札にある場合、最優先で[gold]プレイ[/gold]しなければならない。",
+  "THE_ARCHITECT_CUP_POWER_AGITATION_POWER.title": "焦燥",
+  "THE_ARCHITECT_CUP_POWER_AGITATION_POWER.description": "このターン、最もコストの高いカードしかプレイできない。",
+  "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title": "ヴァクがプレイを教える",
+  "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.description": "左から右の順にカードをプレイした場合、このターンのすべての[gold]ブロック[/gold]と[gold]手札[/gold]を[gold]保持[/gold]する。"
 }

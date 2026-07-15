@@ -16,5 +16,15 @@
     "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.title": "找人弄你",
     "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.description": "{IfUpgraded:show:回合开始时，移动到手牌。\n|}在本回合中，使一名队友获得效果：每打出过一次相同的卡牌，就将一张[gold]人[/gold]置入手牌。",
     "THE_ARCHITECT_CUP_CARD_HUMAN.title":"人",
-    "THE_ARCHITECT_CUP_CARD_HUMAN.description":"失去{HpLoss:diff()}点生命值。"
+    "THE_ARCHITECT_CUP_CARD_HUMAN.description":"失去{HpLoss:diff()}点生命值。",
+  "THE_ARCHITECT_CUP_CARD_COUPLING.title": "耦合",
+  "THE_ARCHITECT_CUP_CARD_COUPLING.description": "每当你[gold]激发[/gold]充能球时，触发剩余所有充能球的被动。",
+  "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.title": "决进",
+  "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.description": "升级你的[gold]君王之剑[/gold]。每当[gold]君王之剑[/gold]在你的手牌中，你必须优先打出[gold]君王之剑[/gold]。",
+  "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.title": "如影随形",
+  "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.description": "打出最后进入[gold]弃牌堆[/gold]的牌。",
+  "THE_ARCHITECT_CUP_CARD_AGITATION.title": "焦躁",
+  "THE_ARCHITECT_CUP_CARD_AGITATION.description": "获得{Energy:energyIcons()}。这个回合，你只能打出耗能最高的牌。",
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.title": "瓦库教你打整局",
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "如果你在任意回合内按从左到右的顺序出牌，该回合[gold]保留[/gold]你的所有[gold]格挡[/gold]和[gold]手牌[/gold]。"
 }

@@ -16,5 +16,15 @@
     "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.title": "誰かにやってもらおう",
     "THE_ARCHITECT_CUP_CARD_FIND_SOMEONE_TO_GET_YOU.description": "{IfUpgraded:show:ターン開始時、手札に移動する。\n|}このターン、味方1人が以下の効果を得る：同じカードがプレイされるたび、[gold]人間[/gold]1枚を手札に加える。",
     "THE_ARCHITECT_CUP_CARD_HUMAN.title": "人",
-    "THE_ARCHITECT_CUP_CARD_HUMAN.description": "{HpLoss:diff()}HPを失う。"
+    "THE_ARCHITECT_CUP_CARD_HUMAN.description": "{HpLoss:diff()}HPを失う。",
+  "THE_ARCHITECT_CUP_CARD_COUPLING.title": "結合",
+  "THE_ARCHITECT_CUP_CARD_COUPLING.description": "オーブを[blue]発動[/blue]するたび、残りのすべてのオーブの受動効果を発動する。",
+  "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.title": "決進",
+  "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.description": "[gold]君主の剣[/gold]をアップグレードする。[gold]君主の剣[/gold]が手札にある場合、最優先で[gold]プレイ[/gold]しなければならない。",
+  "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.title": "影の如く",
+  "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.description": "最後に[gold]捨て札山[/gold]に入ったカードを[gold]プレイ[/gold]する。",
+  "THE_ARCHITECT_CUP_CARD_AGITATION.title": "焦燥",
+  "THE_ARCHITECT_CUP_CARD_AGITATION.description": "{Energy:energyIcons()}獲得する。このターン、最もコストの高いカードしかプレイできない。",
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.title": "ヴァクがプレイを教える",
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "いずれかのターンで左から右の順にカードをプレイした場合、そのターンのすべての[gold]ブロック[/gold]と[gold]手札[/gold]を[gold]保持[/gold]する。"
 }

@@ -7,5 +7,13 @@
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.title": "Find Someone to Get You",
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.description": "Whenever you play the same card again, add a [gold]Human[/gold] to your hand.",
     "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.title": "Ping Pong",
-    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "Whenever the owner plays a 0-cost card, bounce {IfUpgraded:show:4|3} times off a random enemy. Removed at end of turn."
+    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "Whenever the owner plays a 0-cost card, bounce {IfUpgraded:show:4|3} times off a random enemy. Removed at end of turn.",
+  "THE_ARCHITECT_CUP_POWER_COUPLING_POWER.title": "Coupling",
+  "THE_ARCHITECT_CUP_POWER_COUPLING_POWER.description": "Whenever you [blue]Evoke[/blue] an orb, trigger the passive of all remaining orbs {Amount} times.",
+  "THE_ARCHITECT_CUP_POWER_PRESS_FORWARD_POWER.title": "Press Forward",
+  "THE_ARCHITECT_CUP_POWER_PRESS_FORWARD_POWER.description": "Upgrade your [gold]Sovereign Blade[/gold]. Whenever [gold]Sovereign Blade[/gold] is in your hand, you must [gold]play[/gold] it first.",
+  "THE_ARCHITECT_CUP_POWER_AGITATION_POWER.title": "Agitation",
+  "THE_ARCHITECT_CUP_POWER_AGITATION_POWER.description": "This turn, you can only play the highest-cost card.",
+  "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title": "Vakuu Teaches You to Play",
+  "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.description": "If you play cards from left to right, [gold]retain[/gold] all your [gold]Block[/gold] and [gold]hand[/gold] this turn."
 }
