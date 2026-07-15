@@ -44,6 +44,10 @@ public sealed class VakuuTeachesUToPlay() : ArchitectCupCard(1, CardType.Power, 
         {
             return Task.CompletedTask;
         }
+        if(card.Pile.Type == PileType.Play || oldPileType == PileType.Play)
+        {
+            return Task.CompletedTask;
+        }
         if(nextCard.ContainsKey(card))
         {
             if(oldPileType == PileType.Hand)

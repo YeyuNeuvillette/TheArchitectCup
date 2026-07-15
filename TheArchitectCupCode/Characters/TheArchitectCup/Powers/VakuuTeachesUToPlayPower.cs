@@ -23,10 +23,17 @@ public class VakuuTeachesUToPlayPower : BasePower
         public required Dictionary<CardModel, CardModel?> nextCard;
     }
 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new DynamicVar("CanFunction", 1),
+        new StringVar("Card", "你不该看到这个。"),
+        new StringVar("Position", "你不该看到这个。")
+    ];
+
     protected override object InitInternalData()
     {
         return new Data()
         {
+            canFunctionThisTurn = false,
             nextCard = new Dictionary<CardModel, CardModel?>()
         };
     }
@@ -40,11 +47,23 @@ public class VakuuTeachesUToPlayPower : BasePower
     {
         GetInternalData<Data>().canFunctionThisTurn = canFunctionThisTurn;
         GetInternalData<Data>().nextCard = nextCard;
+        DynamicVars["CanFunction"].BaseValue = canFunctionThisTurn ?(nextCard.Count == 0 ? 3 :(nextCard.Count == 1 ? 1 : 2)): 0;
+        if(nextCard.Count == 1)
+        {
+            CardModel keyCard = nextCard.First().Key;
+            ((StringVar)DynamicVars["Card"]).StringValue = keyCard.Title;
+            int index = PileType.Hand.GetPile(Owner.Player).Cards.IndexOf(keyCard);
+            ((StringVar)DynamicVars["Position"]).StringValue = index >= 0 ? (index + 1).ToString() : "不在手牌！";
+        }
     }
 
     public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if(!GetInternalData<Data>().canFunctionThisTurn)
+        {
+            return Task.CompletedTask;
+        }
+        if(card.Pile.Type == PileType.Play || oldPileType == PileType.Play)
         {
             return Task.CompletedTask;
         }
@@ -78,6 +97,7 @@ public class VakuuTeachesUToPlayPower : BasePower
         if(!GetInternalData<Data>().nextCard.ContainsKey(cardPlay.Card))
         {
             GetInternalData<Data>().canFunctionThisTurn = false;
+            DynamicVars["CanFunction"].BaseValue = 0;
             return Task.CompletedTask;
         }
         CardModel? card = GetInternalData<Data>().nextCard[cardPlay.Card];
@@ -85,6 +105,14 @@ public class VakuuTeachesUToPlayPower : BasePower
         if(card != null)
         {
             GetInternalData<Data>().nextCard.Add(card, GetNextCard(card));
+            DynamicVars["CanFunction"].BaseValue = 1;
+            ((StringVar)DynamicVars["Card"]).StringValue = card.Title;
+            int index = PileType.Hand.GetPile(Owner.Player).Cards.IndexOf(card);
+            ((StringVar)DynamicVars["Position"]).StringValue = index >= 0 ? (index + 1).ToString() : "不在手牌！";
+        }
+        else
+        {
+            DynamicVars["CanFunction"].BaseValue = 2;
         }
         return Task.CompletedTask;
     }
@@ -101,6 +129,7 @@ public class VakuuTeachesUToPlayPower : BasePower
         {
             GetInternalData<Data>().nextCard.Add(card, GetNextCard(card));
         }
+        DynamicVars["CanFunction"].BaseValue = 3;
     }
 
     private CardModel? GetNextCard(CardModel lastcard)

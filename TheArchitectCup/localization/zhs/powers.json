@@ -7,5 +7,7 @@
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.title": "找人弄你",
     "THE_ARCHITECT_CUP_POWER_FIND_SOMEONE_TO_GET_YOU_POWER.description": "每打出过一次相同的卡牌，就将一张[gold]人[/gold]置入手牌。",
     "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.title": "乒乒乓乓",
-    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "持有者每打出一张0费牌，对其随机敌人造成{IfUpgraded:show:4|3}次弹跳特效。回合结束时移除。"
+    "THE_ARCHITECT_CUP_POWER_PING_PONG_POWER.smartDescription": "持有者每打出一张0费牌，对其随机敌人造成{IfUpgraded:show:4|3}次弹跳特效。回合结束时移除。",
+    "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title":"瓦库教你打整局",
+    "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.smartDescription":"{CanFunction:choose(1|2|3):按照从左到右的顺序打牌，就在本回合[gold]保留[/gold]你的手牌和[gold]格挡[/gold]。\n下一张牌是[gold]{Card}[/gold]，你[gold]手牌[/gold]的第[blue]{Position}[/blue]张。|按照从左到右的顺序打牌，就在本回合[gold]保留[/gold]你的手牌和[gold]格挡[/gold]。\n这样才对。|按照从左到右的顺序打牌，就在本回合[gold]保留[/gold]你的手牌和[gold]格挡[/gold]。\n从任意一张手牌开始吧。|[red]这样不对[/red]。}"
 }
