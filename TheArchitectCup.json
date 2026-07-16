@@ -3,7 +3,7 @@
     "name": "The Architect Cup Anthology", 
     "author": "叶羽", 
     "description": "A curated collection of fan-made cards from the Architect Cup weekly design contests.", 
-    "version": "0.1.0-beta", 
+    "version": "0.2.0", 
     "has_pck": true, 
     "has_dll": true, 
     "dependencies": 

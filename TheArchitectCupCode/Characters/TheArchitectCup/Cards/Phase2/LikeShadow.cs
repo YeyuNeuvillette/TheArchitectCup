@@ -13,7 +13,8 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 public sealed class LikeShadow() : ArchitectCupCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "Kijin Seija 正邪")
+        new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "Kijin Seija 正邪"),
+        new HoverTip(new LocString("static_hover_tips", "CHAMPION_PHASE2.title"), new LocString("static_hover_tips", "CHAMPION_PHASE2.description"))
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];

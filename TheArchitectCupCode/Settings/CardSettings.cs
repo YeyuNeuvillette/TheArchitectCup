@@ -17,6 +17,11 @@ public sealed class CardSettingsData
     public bool EarthShatteringEnabled { get; set; } = true;
     public bool BurnTheMountainEnabled { get; set; } = true;
     public bool BeeBroOnTheRunEnabled { get; set; } = true;
+    public bool CouplingEnabled { get; set; } = true;
+    public bool PressForwardEnabled { get; set; } = true;
+    public bool VakuuTeachesUToPlayEnabled { get; set; } = true;
+    public bool LikeShadowEnabled { get; set; } = true;
+    public bool AgitationEnabled { get; set; } = true;
 }
 
 public static class CardSettingsPage
@@ -64,6 +69,31 @@ public static class CardSettingsPage
         MainFile.ModId, DataKey, SaveScope.Global,
         static s => s.BeeBroOnTheRunEnabled,
         static (s, v) => s.BeeBroOnTheRunEnabled = v);
+
+    private static readonly ModSettingsValueBinding<CardSettingsData, bool> CouplingBinding = new(
+        MainFile.ModId, DataKey, SaveScope.Global,
+        static s => s.CouplingEnabled,
+        static (s, v) => s.CouplingEnabled = v);
+
+    private static readonly ModSettingsValueBinding<CardSettingsData, bool> PressForwardBinding = new(
+        MainFile.ModId, DataKey, SaveScope.Global,
+        static s => s.PressForwardEnabled,
+        static (s, v) => s.PressForwardEnabled = v);
+
+    private static readonly ModSettingsValueBinding<CardSettingsData, bool> VakuuTeachesUToPlayBinding = new(
+        MainFile.ModId, DataKey, SaveScope.Global,
+        static s => s.VakuuTeachesUToPlayEnabled,
+        static (s, v) => s.VakuuTeachesUToPlayEnabled = v);
+
+    private static readonly ModSettingsValueBinding<CardSettingsData, bool> LikeShadowBinding = new(
+        MainFile.ModId, DataKey, SaveScope.Global,
+        static s => s.LikeShadowEnabled,
+        static (s, v) => s.LikeShadowEnabled = v);
+
+    private static readonly ModSettingsValueBinding<CardSettingsData, bool> AgitationBinding = new(
+        MainFile.ModId, DataKey, SaveScope.Global,
+        static s => s.AgitationEnabled,
+        static (s, v) => s.AgitationEnabled = v);
 
     private static readonly RunSavedData<CardSettingsData> RunSavedCardSettings =
         RunSavedDataStore.For(MainFile.ModId).Register<CardSettingsData>(
@@ -118,7 +148,29 @@ public static class CardSettingsPage
                 .AddToggle("bee_bro_on_the_run",
                     ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN_TOGGLE", "Bee Bro On the Run"),
                     BeeBroOnTheRunBinding,
-                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN_AUTHOR", "Author: 阿迪"))));
+                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN_AUTHOR", "Author: 阿迪")))
+            .AddSection("phase2", section => section
+                .WithTitle(ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_SECTION_PHASE2", "Phase 2"))
+                .AddToggle("coupling",
+                    ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_COUPLING_TOGGLE", "Coupling"),
+                    CouplingBinding,
+                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_COUPLING_AUTHOR", "Author: 助手"))
+                .AddToggle("press_forward",
+                    ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD_TOGGLE", "Press Forward"),
+                    PressForwardBinding,
+                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD_AUTHOR", "Author: 糯米团子"))
+                .AddToggle("vakuu_teaches_u_to_play",
+                    ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY_TOGGLE", "Vakuu Teaches You to Play"),
+                    VakuuTeachesUToPlayBinding,
+                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY_AUTHOR", "Author: 塔莉娜"))
+                .AddToggle("like_shadow",
+                    ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW_TOGGLE", "Like Shadow"),
+                    LikeShadowBinding,
+                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW_AUTHOR", "Author: Kijin Seija 正邪"))
+                .AddToggle("agitation",
+                    ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_AGITATION_TOGGLE", "Agitation"),
+                    AgitationBinding,
+                    description: ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_CARD_AGITATION_AUTHOR", "Author: Alome"))));
     }
 
     public static bool IsCardEnabled(string cardId) => cardId switch
@@ -131,6 +183,11 @@ public static class CardSettingsPage
         "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING" => EarthShatteringBinding.Read(),
         "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN" => BurnTheMountainBinding.Read(),
         "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN" => BeeBroOnTheRunBinding.Read(),
+        "THE_ARCHITECT_CUP_CARD_COUPLING" => CouplingBinding.Read(),
+        "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD" => PressForwardBinding.Read(),
+        "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY" => VakuuTeachesUToPlayBinding.Read(),
+        "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW" => LikeShadowBinding.Read(),
+        "THE_ARCHITECT_CUP_CARD_AGITATION" => AgitationBinding.Read(),
         _ => true
     };
 
@@ -152,6 +209,11 @@ public static class CardSettingsPage
         "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING" => data.EarthShatteringEnabled,
         "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN" => data.BurnTheMountainEnabled,
         "THE_ARCHITECT_CUP_CARD_BEE_BRO_ON_THE_RUN" => data.BeeBroOnTheRunEnabled,
+        "THE_ARCHITECT_CUP_CARD_COUPLING" => data.CouplingEnabled,
+        "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD" => data.PressForwardEnabled,
+        "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY" => data.VakuuTeachesUToPlayEnabled,
+        "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW" => data.LikeShadowEnabled,
+        "THE_ARCHITECT_CUP_CARD_AGITATION" => data.AgitationEnabled,
         _ => true
     };
 
@@ -167,6 +229,11 @@ public static class CardSettingsPage
             EarthShatteringEnabled = EarthShatteringBinding.Read(),
             BurnTheMountainEnabled = BurnTheMountainBinding.Read(),
             BeeBroOnTheRunEnabled = BeeBroOnTheRunBinding.Read(),
+            CouplingEnabled = CouplingBinding.Read(),
+            PressForwardEnabled = PressForwardBinding.Read(),
+            VakuuTeachesUToPlayEnabled = VakuuTeachesUToPlayBinding.Read(),
+            LikeShadowEnabled = LikeShadowBinding.Read(),
+            AgitationEnabled = AgitationBinding.Read(),
         };
         RunSavedCardSettings.Set(runState, data);
     }

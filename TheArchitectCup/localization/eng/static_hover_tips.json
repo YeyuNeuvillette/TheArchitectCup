@@ -2,5 +2,7 @@
     "AUTHOR.title": "Author",
     "AUTHOR.description": "{0}",
     "CHAMPION.title": "Champion",
-    "CHAMPION.description": "This work won the championship in the 1st \"Architect Cup\"."
+    "CHAMPION.description": "This work won the championship in the 1st \"Architect Cup\".",
+    "CHAMPION_PHASE2.title": "Champion",
+    "CHAMPION_PHASE2.description": "This work won the championship in the 2nd \"Architect Cup\"."
 }

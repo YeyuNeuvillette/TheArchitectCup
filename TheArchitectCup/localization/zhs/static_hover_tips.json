@@ -2,5 +2,7 @@
     "AUTHOR.title": "作者",
     "AUTHOR.description": "{0}",
     "CHAMPION.title": "冠军",
-    "CHAMPION.description": "本作在第一期「建筑师杯」中获得冠军。"
+    "CHAMPION.description": "本作在第一期「建筑师杯」中获得冠军。",
+    "CHAMPION_PHASE2.title": "冠军",
+    "CHAMPION_PHASE2.description": "本作在第二期「建筑师杯」中获得冠军。"
 }
