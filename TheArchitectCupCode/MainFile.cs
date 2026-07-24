@@ -8,6 +8,7 @@ using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop;
 using TheArchitectCup.Characters.TheArchitectCup;
 using TheArchitectCup.Extensions;
+using TheArchitectCup.Features.Rewards;
 using TheArchitectCup.Settings;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
@@ -30,10 +31,12 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
         harmony.PatchAll();
 
-        CardSettingsPage.Register();
+        CardSettingsService.Register();
+        BeeBroRewardService.Register();
 
         RitsuLibFramework.SubscribeLifecycle<RunStartedEvent>(OnRunStarted);
         RitsuLibFramework.SubscribeLifecycle<RunLoadedEvent>(OnRunLoaded);
+        RitsuLibFramework.SubscribeLifecycle<RunEndedEvent>(_ => CardSettingsService.OnRunEnded());
 
         var registry = ModContentRegistry.For(ModId);
         registry.RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupCompendiumPool>(
@@ -62,14 +65,11 @@ public partial class MainFile : Node
 
     private static void OnRunStarted(RunStartedEvent e)
     {
-        CardSettingsPage.SyncLocalSettingsToRunState(e.RunState);
+        CardSettingsService.OnRunStarted(e.RunState);
     }
 
     private static void OnRunLoaded(RunLoadedEvent e)
     {
-        if (!e.IsMultiplayer)
-            CardSettingsPage.SyncLocalSettingsToRunState(e.RunState);
-        else if (!CardSettingsPage.HasSyncedSettings(e.RunState))
-            CardSettingsPage.SyncLocalSettingsToRunState(e.RunState);
+        CardSettingsService.OnRunLoaded(e.RunState, e.IsMultiplayer);
     }
 }

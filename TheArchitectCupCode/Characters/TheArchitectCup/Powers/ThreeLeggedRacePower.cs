@@ -10,71 +10,35 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Combat.PlayerResources;
 using TheArchitectCup.Characters.Base;
-using TheArchitectCup.Characters.TheArchitectCup.Patches;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
 
 [RegisterPower]
-public class ThreeLeggedRacePower : BasePower, IEnergyGainedListener
+public sealed class ThreeLeggedRacePower : BasePower, IPlayerResourceHookListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
 
-    private class Data
+    public async Task AfterPlayerEnergyGained(PlayerResourceGainContext context)
     {
-        public Creature Teammate = null!;
-        public bool IsRegistered;
-    }
-
-    protected override object? InitInternalData()
-    {
-        return new Data();
-    }
-
-    public void SetTeammate(Creature teammate)
-    {
-        GetInternalData<Data>().Teammate = teammate;
-    }
-
-    public Creature GetTeammate()
-    {
-        return GetInternalData<Data>().Teammate;
-    }
-
-    public void RegisterListener()
-    {
-        Data data = GetInternalData<Data>();
-        if (!data.IsRegistered)
-        {
-            data.IsRegistered = true;
-            EnergyGainPatch.Listeners.Add(this);
-        }
-    }
-
-    public void OnEnergyGained(Player player, decimal amount)
-    {
-        Data data = GetInternalData<Data>();
-        if (data.Teammate == null || player.Creature != data.Teammate)
+        if (context.Player.Creature != Owner || Applier?.IsDead != false || Applier.Player is not { } drawingPlayer)
             return;
 
-        if (Owner?.Player == null)
-            return;
-
-        _ = TriggerDraw(Owner.Player, (int)amount);
+        await TriggerDraw(drawingPlayer, context.Amount);
     }
 
     public override async Task AfterEnergySpent(CardModel card, int amount)
     {
-        Data data = GetInternalData<Data>();
-        if (data.Teammate == null || card.Owner.Creature != Owner)
+        if (card.Owner.Creature != Applier)
             return;
 
         if (amount <= 0)
             return;
 
-        Player? teammatePlayer = data.Teammate.Player;
-        if (teammatePlayer == null)
+        if (Owner.Player is not { } teammatePlayer)
             return;
 
         await TriggerDiscard(teammatePlayer, amount);
@@ -107,20 +71,9 @@ public class ThreeLeggedRacePower : BasePower, IEnergyGainedListener
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
-        if (participants.Contains(Owner))
+        if (Applier != null && participants.Contains(Applier))
         {
-            Unregister();
             await PowerCmd.Remove(this);
-        }
-    }
-
-    private void Unregister()
-    {
-        Data data = GetInternalData<Data>();
-        if (data.IsRegistered)
-        {
-            EnergyGainPatch.Listeners.Remove(this);
-            data.IsRegistered = false;
         }
     }
 }

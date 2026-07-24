@@ -24,9 +24,10 @@ public class CouplingPower : BasePower
         if (orb.Owner == Owner.Player && Owner.Player.PlayerCombatState != null)
         {
             Flash();
+            OrbModel[] remainingOrbs = Owner.Player.PlayerCombatState.OrbQueue.Orbs.ToArray();
             for (int i = 0; i < Amount; i++)
             {
-                foreach (OrbModel orbModel in Owner.Player.PlayerCombatState.OrbQueue.Orbs)
+                foreach (OrbModel orbModel in remainingOrbs)
                 {
                     await OrbCmd.Passive(choiceContext, orbModel, null);
                 }

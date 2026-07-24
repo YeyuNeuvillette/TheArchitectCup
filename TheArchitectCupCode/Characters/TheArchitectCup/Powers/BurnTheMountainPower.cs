@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
 using TheArchitectCup.Characters.Base;
 using TheArchitectCup.Characters.TheArchitectCup.Cards;
+using TheArchitectCup.Features.CardGeneration;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
 
@@ -35,34 +36,28 @@ public sealed class BurnTheMountainPower : BasePower
         return keywords.Add(CardKeyword.Exhaust);
     }
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(
+    public override CardLocation ModifyCardPlayResultLocation(
         CardModel card, bool isAutoPlay, ResourceInfo resources,
-        PileType pileType, CardPilePosition position)
+        CardLocation location)
     {
         if (card.Owner.Creature != Owner)
-            return (pileType, position);
+            return location;
 
-        return (PileType.Exhaust, position);
+        return location with { pileType = PileType.Exhaust };
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner?.Creature != Owner)
+        if (cardPlay.Player.Creature != Owner)
             return;
 
         if (cardPlay.Card is BurnTheMountain)
             return;
 
-        Player? player = cardPlay.Card.Owner;
-        if (player == null)
-            return;
+        Player player = cardPlay.Player;
 
-        CharacterModel currentCharacter = player.Character;
-
-        var otherCharacterCards = ModelDb.AllCharacters
-            .Where(c => c != currentCharacter)
-            .SelectMany(c => c.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint))
-            .ToList();
+        IReadOnlyList<CardModel> otherCharacterCards =
+            CrossCharacterCardGenerationService.GetCandidates(player, cardPlay.Card);
 
         if (otherCharacterCards.Count == 0)
             return;

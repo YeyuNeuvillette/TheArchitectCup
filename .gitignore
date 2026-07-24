@@ -6,6 +6,7 @@ bin/
 obj/
 *.pck
 local.props
+# Artwork is distributed out of band. See assets/required-assets.json and docs/DEVELOPMENT.md.
 TheArchitectCup/images/
 .trae/
 TheArchitectCup/voice/music/

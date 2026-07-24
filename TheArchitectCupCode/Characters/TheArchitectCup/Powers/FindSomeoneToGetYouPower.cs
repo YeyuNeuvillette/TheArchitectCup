@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -15,39 +16,29 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
 [RegisterPower]
 public sealed class FindSomeoneToGetYouPower : BasePower
 {
-    private class Data
-    {
-        public required HashSet<ModelId> recordedCardIds;
-    }
-
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected override object InitInternalData()
-    {
-        return new Data()
-        {
-            recordedCardIds = new HashSet<ModelId>()
-        };
-    }
-
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner?.Creature != Owner)
+        if (cardPlay.Player.Creature != Owner)
             return;
 
-        if (GetInternalData<Data>().recordedCardIds.Contains(cardPlay.Card.Id))
+        int matchingPlays = CombatManager.Instance.History.CardPlaysStarted.Count(
+            (CardPlayStartedEntry entry) =>
+                entry.HappenedThisTurn(CombatState) &&
+                entry.CardPlay.Player.Creature == Owner &&
+                entry.CardPlay.Card.Id == cardPlay.Card.Id);
+        if (matchingPlays < 2)
+            return;
+
+        Player player = cardPlay.Player;
+
+        for (int index = 0; index < Amount; index++)
         {
-            Player? player = cardPlay.Card.Owner;
-            if (player == null)
-                return;
             CardModel human = CombatState.CreateCard<Human>(player);
             await CardPileCmd.AddGeneratedCardToCombat(human, PileType.Hand, player);
-        }
-        else
-        {
-            GetInternalData<Data>().recordedCardIds.Add(cardPlay.Card.Id);
         }
     }
 
@@ -55,7 +46,6 @@ public sealed class FindSomeoneToGetYouPower : BasePower
     {
         if (participants.Contains(Owner))
         {
-            GetInternalData<Data>().recordedCardIds.Clear();
             await PowerCmd.Remove(this);
         }
     }

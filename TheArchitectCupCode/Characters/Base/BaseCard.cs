@@ -1,7 +1,7 @@
-using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using STS2RitsuLib.Scaffolding.Content;
 using TheArchitectCup.Extensions;
+using TheArchitectCup.Infrastructure;
 
 namespace TheArchitectCup.Characters.Base;
 
@@ -19,7 +19,7 @@ public abstract class BaseCard(
     private string ClassNameBasedArtFileName => $"{MainFile.ModId.ToLowerInvariant()}_{GetType().Name.ToLegacyCompactFileName()}.png";
 
     public override string CustomPortraitPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.BigCardsImagePath(),
             ArtFileName.CardsImagePath(),
             LegacyPrefixedArtFileName.BigCardsImagePath(),
@@ -32,7 +32,7 @@ public abstract class BaseCard(
             "card.png".CardsImagePath());
 
     public override string PortraitPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.CardsImagePath(),
             ArtFileName.BigCardsImagePath(),
             LegacyPrefixedArtFileName.CardsImagePath(),
@@ -45,21 +45,11 @@ public abstract class BaseCard(
             "card.png".BigCardsImagePath());
 
     public override string? CustomBetaPortraitPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.CardBetaImagePath(),
             LegacyPrefixedArtFileName.CardBetaImagePath(),
             ClassNameBasedArtFileName.CardBetaImagePath(),
             LegacyArtFileName.CardBetaImagePath(),
             PortraitPath);
 
-    private static string ResolveExistingPath(params string[] candidates)
-    {
-        foreach (var candidate in candidates)
-        {
-            if (ResourceLoader.Exists(candidate))
-                return candidate;
-        }
-
-        return candidates[^1];
-    }
 }

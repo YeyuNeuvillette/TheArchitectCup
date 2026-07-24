@@ -1,6 +1,6 @@
-using Godot;
 using STS2RitsuLib.Scaffolding.Content;
 using TheArchitectCup.Extensions;
+using TheArchitectCup.Infrastructure;
 
 namespace TheArchitectCup.Characters.Base;
 
@@ -14,27 +14,17 @@ public abstract class BasePotion : ModPotionTemplate
     private string PrefixedOutlineFileName => $"{MainFile.ModId.ToLowerInvariant()}_potion_{Id.Entry.ToLegacyCompactFileName()}_outline.png";
 
     public override string? CustomImagePath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.PotionImagePath(),
             PrefixedArtFileName.PotionImagePath(),
             LegacyArtFileName.PotionImagePath(),
             "potion.png".PotionImagePath());
 
     public override string? CustomOutlinePath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             OutlineFileName.PotionImagePath(),
             PrefixedOutlineFileName.PotionImagePath(),
             LegacyOutlineFileName.PotionImagePath(),
             "potion_outline.png".PotionImagePath());
 
-    private static string ResolveExistingPath(params string[] candidates)
-    {
-        foreach (var candidate in candidates)
-        {
-            if (ResourceLoader.Exists(candidate))
-                return candidate;
-        }
-
-        return candidates[^1];
-    }
 }

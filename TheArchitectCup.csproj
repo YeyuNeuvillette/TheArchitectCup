@@ -19,6 +19,7 @@
     <ModPckPath>$(ModOutputDir)$(MSBuildProjectName).pck</ModPckPath>
     <RunPckExport Condition="'$(RunPckExport)' == '' and '$(DesignTimeBuild)' != 'true'">true</RunPckExport>
     <RunPckExport Condition="'$(RunPckExport)' == ''">false</RunPckExport>
+    <PowerShellExe Condition="'$(PowerShellExe)' == ''">pwsh</PowerShellExe>
   </PropertyGroup>
 
   <Target Name="EnsureLocalProps" BeforeTargets="PrepareForBuild" Condition="!Exists('.\local.props')">
@@ -40,8 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="STS2.RitsuLib" Version="0.4.57" PrivateAssets="all"/>
-    <AdditionalFiles Include="localization/**/*.json"/>
+    <PackageReference Include="STS2.RitsuLib" Version="0.4.58" PrivateAssets="all"/>
+    <AdditionalFiles Include="TheArchitectCup/localization/**/*.json"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -66,6 +67,14 @@
     <MakeDir Directories="$(ModOutputDir)"/>
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModOutputDir)"/>
     <Copy SourceFiles="$(MSBuildProjectDirectory)\TheArchitectCup.json" DestinationFolder="$(ModOutputDir)"/>
+  </Target>
+
+  <Target Name="Validate Mod Localization" BeforeTargets="CoreCompile" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Exec Command="&quot;$(PowerShellExe)&quot; -NoProfile -File &quot;$(MSBuildProjectDirectory)\tools\Validate-Localization.ps1&quot;"/>
+  </Target>
+
+  <Target Name="Validate External Assets" BeforeTargets="Export Mod PCK" Condition="'$(RunPckExport)' == 'true' and '$(STS2_SKIP_PCK_EXPORT)' != '1'">
+    <Exec Command="&quot;$(PowerShellExe)&quot; -NoProfile -File &quot;$(MSBuildProjectDirectory)\tools\Validate-Assets.ps1&quot;"/>
   </Target>
 
   <Target Name="Export Mod PCK" AfterTargets="Build" Condition="'$(RunPckExport)' == 'true' and '$(STS2_SKIP_PCK_EXPORT)' != '1' and Exists('$(GodotExe)')">

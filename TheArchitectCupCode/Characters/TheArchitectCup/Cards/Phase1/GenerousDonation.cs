@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using TheArchitectCup.Characters.TheArchitectCup.Patches;
 using STS2RitsuLib.Interop.AutoRegistration;
 using MegaCrit.Sts2.Core.Commands;
 
@@ -39,7 +38,7 @@ public sealed class GenerousDonation() : ArchitectCupCard(3, CardType.Skill, Car
 
         foreach (var card in selectedCards)
         {
-            await HandTransferPatch.GiveCardFromHandToAnotherPlayerHand(card, targetPlayer);
+            await CardPileCmd.GiveToAnotherPlayer(card, targetPlayer, PileType.Hand);
         }
     }
 }

@@ -23,9 +23,22 @@ public sealed class BurnTheMountain() : ArchitectCupCard(2, CardType.Power, Card
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         int amount = IsUpgraded ? 2 : 1;
-        foreach (Player player in Owner.Creature.CombatState!.Players)
+        foreach (Player player in Owner.Creature.CombatState!.Players.OrderBy(static player => player.NetId))
         {
-            await PowerCmd.Apply<BurnTheMountainPower>(choiceContext, player.Creature, amount, Owner.Creature, this);
+            BurnTheMountainPower? existing = player.Creature.GetPower<BurnTheMountainPower>();
+            if (existing == null)
+            {
+                await PowerCmd.Apply<BurnTheMountainPower>(choiceContext, player.Creature, amount, Owner.Creature, this);
+            }
+            else if (amount > existing.Amount)
+            {
+                await PowerCmd.ModifyAmount(
+                    choiceContext,
+                    existing,
+                    amount - existing.Amount,
+                    Owner.Creature,
+                    this);
+            }
         }
     }
 }

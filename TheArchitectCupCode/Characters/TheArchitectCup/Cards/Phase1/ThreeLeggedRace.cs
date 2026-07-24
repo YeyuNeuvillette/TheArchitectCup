@@ -36,12 +36,12 @@ public sealed class ThreeLeggedRace() : ArchitectCupCard(0, CardType.Skill, Card
         await CardPileCmd.Draw(choiceContext, drawCount, Owner);
         await CardPileCmd.Draw(choiceContext, drawCount, targetPlayer);
 
-        ThreeLeggedRacePower? power = await PowerCmd.Apply<ThreeLeggedRacePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
-        if (power != null)
-        {
-            power.SetTeammate(targetPlayer.Creature);
-            power.RegisterListener();
-        }
+        await PowerCmd.Apply<ThreeLeggedRacePower>(
+            choiceContext,
+            targetPlayer.Creature,
+            1,
+            Owner.Creature,
+            this);
     }
 
     protected override void OnUpgrade()

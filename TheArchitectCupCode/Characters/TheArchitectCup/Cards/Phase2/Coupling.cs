@@ -11,7 +11,7 @@ using TheArchitectCup.Characters.TheArchitectCup.Powers;
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
 [RegisterCard(typeof(DefectCardPool))]
-public sealed class Coupling() : ArchitectCupCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public sealed class Coupling() : ArchitectCupCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Evoke),

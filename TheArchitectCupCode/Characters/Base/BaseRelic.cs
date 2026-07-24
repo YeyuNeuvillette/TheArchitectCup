@@ -1,6 +1,6 @@
-using Godot;
 using STS2RitsuLib.Scaffolding.Content;
 using TheArchitectCup.Extensions;
+using TheArchitectCup.Infrastructure;
 
 namespace TheArchitectCup.Characters.Base;
 
@@ -12,19 +12,19 @@ public abstract class BaseRelic : ModRelicTemplate
     private string LegacyOutlineFileName => $"{Id.Entry.ToLegacyCompactFileName()}_outline.png";
 
     public override string? CustomIconPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.RelicImagePath(),
             LegacyArtFileName.RelicImagePath(),
             "relic.png".RelicImagePath());
 
     public override string? CustomIconOutlinePath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             OutlineFileName.RelicImagePath(),
             LegacyOutlineFileName.RelicImagePath(),
             "relic_outline.png".RelicImagePath());
 
     public override string? CustomBigIconPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.BigRelicImagePath(),
             ArtFileName.RelicImagePath(),
             LegacyArtFileName.BigRelicImagePath(),
@@ -32,14 +32,4 @@ public abstract class BaseRelic : ModRelicTemplate
             "relic.png".BigRelicImagePath(),
             "relic.png".RelicImagePath());
 
-    private static string ResolveExistingPath(params string[] candidates)
-    {
-        foreach (var candidate in candidates)
-        {
-            if (ResourceLoader.Exists(candidate))
-                return candidate;
-        }
-
-        return candidates[^1];
-    }
 }

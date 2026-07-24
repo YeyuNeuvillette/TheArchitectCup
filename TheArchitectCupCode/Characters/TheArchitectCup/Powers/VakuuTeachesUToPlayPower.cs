@@ -44,13 +44,24 @@ public class VakuuTeachesUToPlayPower : BasePower
         if (player == null || card.Owner != player)
             return false;
 
-        int expectedPos = data.lastPlayedPosition + 1;
-        if (expectedPos >= data.handSnapshot.Count)
+        var currentHand = PileType.Hand.GetPile(player).Cards;
+        if (!currentHand.Contains(card))
             return false;
 
-        var expectedCard = data.handSnapshot[expectedPos];
-        var currentHand = PileType.Hand.GetPile(player).Cards;
-        return currentHand.Contains(card) && expectedCard == card;
+        int searchPos = data.lastPlayedPosition + 1;
+        while (searchPos < data.handSnapshot.Count)
+        {
+            var candidate = data.handSnapshot[searchPos];
+            if (candidate == card)
+                return true;
+
+            if (candidate.CanPlay())
+                return false;
+
+            searchPos++;
+        }
+
+        return false;
     }
 
     public void StartTrackingCurrentTurn(Player player)
@@ -64,11 +75,6 @@ public class VakuuTeachesUToPlayPower : BasePower
         data.lastPlayedPosition = -1;
         data.handSnapshot = [.. PileType.Hand.GetPile(player).Cards];
 
-        Godot.GD.Print($"[VakuuTeachesUToPlayPower] StartTrackingCurrentTurn, hand count={data.handSnapshot.Count}");
-        for (int i = 0; i < data.handSnapshot.Count; i++)
-        {
-            Godot.GD.Print($"[VakuuTeachesUToPlayPower]   Snapshot pos {i}: {data.handSnapshot[i].Id}");
-        }
     }
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
@@ -87,11 +93,8 @@ public class VakuuTeachesUToPlayPower : BasePower
             return Task.CompletedTask;
 
         int playedPos = data.handSnapshot.IndexOf(playedCard);
-        Godot.GD.Print($"[VakuuTeachesUToPlayPower] BeforeCardPlayed: card={playedCard.Id}, playedPos={playedPos}, firstCardPlayed={data.firstCardPlayed}, lastPlayedPosition={data.lastPlayedPosition}");
-
         if (playedPos < 0)
         {
-            Godot.GD.Print($"[VakuuTeachesUToPlayPower] Card not in snapshot, disabling");
             data.canFunctionThisTurn = false;
             return Task.CompletedTask;
         }
@@ -100,19 +103,37 @@ public class VakuuTeachesUToPlayPower : BasePower
         {
             data.firstCardPlayed = true;
             data.lastPlayedPosition = playedPos;
-            Godot.GD.Print($"[VakuuTeachesUToPlayPower] First card played at position {playedPos}");
             return Task.CompletedTask;
         }
 
-        if (playedPos != data.lastPlayedPosition + 1)
+        int expectedPos = data.lastPlayedPosition + 1;
+        if (playedPos == expectedPos)
         {
-            Godot.GD.Print($"[VakuuTeachesUToPlayPower] FAILED! Expected pos {data.lastPlayedPosition + 1}, got {playedPos}");
-            data.canFunctionThisTurn = false;
+            data.lastPlayedPosition = playedPos;
             return Task.CompletedTask;
         }
 
-        data.lastPlayedPosition = playedPos;
-        Godot.GD.Print($"[VakuuTeachesUToPlayPower] SUCCESS! Next expected pos: {data.lastPlayedPosition + 1}");
+        if (playedPos > expectedPos)
+        {
+            bool allUnplayable = true;
+            for (int i = expectedPos; i < playedPos; i++)
+            {
+                var skippedCard = data.handSnapshot[i];
+                if (skippedCard.CanPlay())
+                {
+                    allUnplayable = false;
+                    break;
+                }
+            }
+
+            if (allUnplayable)
+            {
+                data.lastPlayedPosition = playedPos;
+                return Task.CompletedTask;
+            }
+        }
+
+        data.canFunctionThisTurn = false;
         return Task.CompletedTask;
     }
 

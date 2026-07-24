@@ -23,6 +23,8 @@ public class AgitationPower : BasePower
         {
             return true;
         }
-        return card.EnergyCost.GetResolved() >= PileType.Hand.GetPile(Owner.Player).Cards.Max(c => c.EnergyCost.GetResolved());
+        IReadOnlyList<CardModel> hand = PileType.Hand.GetPile(Owner.Player).Cards;
+        return hand.Count == 0 ||
+            card.EnergyCost.GetResolved() >= hand.Max(static candidate => candidate.EnergyCost.GetResolved());
     }
 }

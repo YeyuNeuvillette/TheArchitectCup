@@ -10,8 +10,6 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Localization;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Nodes.Combat;
@@ -27,20 +25,13 @@ public sealed class PingPongPower : BasePower
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Single;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new IfUpgradedVar(IsUpgraded ? UpgradeDisplay.Upgraded : UpgradeDisplay.Normal)
-    ];
-
-    public bool IsUpgraded { get; set; }
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     private readonly Color _vfxTint = new Color("83eb85");
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner?.Creature != Owner)
+        if (cardPlay.Player.Creature != Owner)
             return;
 
         if (cardPlay.Card.EnergyCost.GetResolved() != 0)
@@ -61,7 +52,7 @@ public sealed class PingPongPower : BasePower
         if (combatState == null)
             return;
 
-        Creature? enemy = Owner.Player?.RunState.Rng.CombatTargets.NextItem(combatState.HittableEnemies);
+        Creature? enemy = combatState.HittableEnemies.FirstOrDefault();
         if (enemy == null)
             return;
 
@@ -80,9 +71,7 @@ public sealed class PingPongPower : BasePower
 
         if (targetNode != null)
         {
-            int repeatCount = IsUpgraded ? 4 : 3;
-
-            for (int i = 0; i < repeatCount; i++)
+            for (int i = 0; i < Amount; i++)
             {
                 NItemThrowVfx? throwVfx = NItemThrowVfx.Create(lastPos, targetNode.GetBottomOfHitbox(), ModelDb.Potion<PoisonPotion>().Image);
                 if (throwVfx != null)

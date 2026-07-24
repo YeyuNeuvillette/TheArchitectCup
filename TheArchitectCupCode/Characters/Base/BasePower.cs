@@ -1,9 +1,9 @@
-using Godot;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Scaffolding.Content;
 using TheArchitectCup.Extensions;
+using TheArchitectCup.Infrastructure;
 
 namespace TheArchitectCup.Characters.Base;
 
@@ -13,13 +13,13 @@ public abstract class BasePower : ModPowerTemplate
     private string LegacyArtFileName => $"{Id.Entry.ToLegacyCompactFileName()}.png";
 
     public override string? CustomIconPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.PowerImagePath(),
             LegacyArtFileName.PowerImagePath(),
             "power.png".PowerImagePath());
 
     public override string? CustomBigIconPath =>
-        ResolveExistingPath(
+        AssetPathResolver.ResolveExistingPath(
             ArtFileName.BigPowerImagePath(),
             ArtFileName.PowerImagePath(),
             LegacyArtFileName.BigPowerImagePath(),
@@ -35,14 +35,4 @@ public abstract class BasePower : ModPowerTemplate
         await base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
     }
 
-    private static string ResolveExistingPath(params string[] candidates)
-    {
-        foreach (var candidate in candidates)
-        {
-            if (ResourceLoader.Exists(candidate))
-                return candidate;
-        }
-
-        return candidates[^1];
-    }
 }

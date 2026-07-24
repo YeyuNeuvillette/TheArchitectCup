@@ -27,9 +27,12 @@ public sealed class PingPong() : ArchitectCupCard(1, CardType.Skill, CardRarity.
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         Player targetPlayer = cardPlay.Target.Player!;
 
-        PingPongPower? power = await PowerCmd.Apply<PingPongPower>(choiceContext, targetPlayer.Creature, 1, Owner.Creature, this);
-        if (power != null)
-            power.IsUpgraded = IsUpgraded;
+        await PowerCmd.Apply<PingPongPower>(
+            choiceContext,
+            targetPlayer.Creature,
+            IsUpgraded ? 4 : 3,
+            Owner.Creature,
+            this);
     }
 
     protected override void OnUpgrade()

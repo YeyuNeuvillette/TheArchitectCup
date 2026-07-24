@@ -9,6 +9,7 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Patches;
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.ShouldGlowGold), MethodType.Getter)]
 public static class VakuuGlowPatch
 {
+    [HarmonyPriority(Priority.Last)]
     public static void Postfix(CardModel __instance, ref bool __result)
     {
         if (__result)
