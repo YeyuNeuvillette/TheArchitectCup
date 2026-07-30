@@ -14,13 +14,11 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
 [RegisterPower]
 public class HauntingPower : BasePower
 {
-    public class Data
+    private class Data
     {
         // Please refer to NightmarePower.
         public CardModel? card;
     }
-
-    public const string _cardKey = "Card";
 
     public override PowerType Type => PowerType.Buff;
 
