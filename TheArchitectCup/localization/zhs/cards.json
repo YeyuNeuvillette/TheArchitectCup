@@ -2,7 +2,7 @@
     "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING.title": "石破天惊",
     "THE_ARCHITECT_CUP_CARD_EARTH_SHATTERING.description": "将所有玩家[gold]手牌[/gold]中的攻击牌[gold]变化[/gold]为{IfUpgraded:show:[gold]巨石+[/gold]|[gold]巨石[/gold]}。",
     "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.title": "“慷慨”捐助",
-    "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.description": "从[gold]手牌[/gold]中选择{IfUpgraded:show:任意|一}张牌，然后将其放入你一名队友的[gold]手牌[/gold]。",
+    "THE_ARCHITECT_CUP_CARD_GENEROUS_DONATION.description": "从[gold]手牌[/gold]中选择{IfUpgraded:show:任意张牌|1张牌}，然后将{IfUpgraded:show:它们|其}交给一名队友。",
     "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE.title": "两人三足",
     "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE.description": "你与另一名玩家各抽{Cards:diff()}张牌。本回合其/你获得/使用能量后，你/其抽取/弃置等量的牌。",
     "THE_ARCHITECT_CUP_CARD_BURN_THE_MOUNTAIN.title": "放火烧山",

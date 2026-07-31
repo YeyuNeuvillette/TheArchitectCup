@@ -17,4 +17,8 @@ public static class ArchitectCupCardIds
     public const string VakuuTeachesUToPlay = "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY";
     public const string LikeShadow = "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW";
     public const string Agitation = "THE_ARCHITECT_CUP_CARD_AGITATION";
+    public const string Haunting = "THE_ARCHITECT_CUP_CARD_HAUNTING";
+    public const string Anvil = "THE_ARCHITECT_CUP_CARD_ANVIL";
+    public const string TrickRoom = "THE_ARCHITECT_CUP_CARD_TRICK_ROOM";
+    public const string Rotation = "THE_ARCHITECT_CUP_CARD_ROTATION";
 }

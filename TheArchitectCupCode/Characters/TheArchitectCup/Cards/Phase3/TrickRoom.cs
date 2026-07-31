@@ -23,7 +23,12 @@ public sealed class TrickRoom() : ArchitectCupCard(1, CardType.Skill, CardRarity
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CardPileCmd.Draw(choiceContext, CardPile.MaxCardsInHand - Owner.PlayerCombatState.Hand.Cards.Count, Owner);
+        CardPile? hand = Owner.PlayerCombatState?.Hand;
+        if (hand == null)
+        {
+            return;
+        }
+        await CardPileCmd.Draw(choiceContext, CardPile.MaxCardsInHand - hand.Cards.Count, Owner);
         await PowerCmd.Apply<TrickRoomPower>(choiceContext, Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
     }
 

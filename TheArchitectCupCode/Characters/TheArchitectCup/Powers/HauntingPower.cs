@@ -37,7 +37,12 @@ public class HauntingPower : BasePower
     {
         if (player == Owner.Player)
         {
-            CardModel card = GetInternalData<Data>().card;
+            CardModel? card = GetInternalData<Data>().card;
+            if (card == null)
+            {
+                await PowerCmd.Remove(this);
+                return;
+            }
             for (int i = 0; i < Amount; i++)
             {
                 CardModel card2 = card.CreateClone();

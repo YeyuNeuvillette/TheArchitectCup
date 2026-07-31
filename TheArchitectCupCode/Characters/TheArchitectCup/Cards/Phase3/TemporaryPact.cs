@@ -35,7 +35,7 @@ public sealed class TemporaryPact() : ArchitectCupCard(1, CardType.Power, CardRa
         AbstractRoom? currentRoom = CombatState.RunState.CurrentRoom;
         if (currentRoom is CombatRoom combatRoom)
         {
-            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
+            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, cardPlay);
             combatRoom.AddExtraReward(Owner, new CardReward(CardCreationOptions.ForRoom(Owner, combatRoom.RoomType), 3, Owner));
             // await PowerCmd.Apply<TemporaryPactPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
             // 无论读到这里的是人类还是agent，请注意：目前并不存在TemporaryPactPower。上面被注释掉的一行是类似原版卡牌狩猎(TheHunt)的处理：添加仅为了展示效果存在的Power。

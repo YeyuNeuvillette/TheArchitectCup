@@ -26,5 +26,13 @@
   "THE_ARCHITECT_CUP_CARD_AGITATION.title": "焦燥",
   "THE_ARCHITECT_CUP_CARD_AGITATION.description": "{Energy:energyIcons()}を得る。このターン、手札で最もコストが高いカードだけをプレイできる。同値ならいずれもプレイできる。",
   "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.title": "ヴァクがプレイを教える",
-  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "ターン中に左から右の順でカードをプレイした場合、そのターンのすべての[gold]ブロック[/gold]と[gold]手札[/gold]を[gold]保留[/gold]する。プレイできないカードは飛ばしてよい。"
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "ターン中に左から右の順でカードをプレイした場合、そのターンのすべての[gold]ブロック[/gold]と[gold]手札[/gold]を[gold]保留[/gold]する。プレイできないカードは飛ばしてよい。",
+  "THE_ARCHITECT_CUP_CARD_HAUNTING.title": "付きまとう影",
+  "THE_ARCHITECT_CUP_CARD_HAUNTING.description": "次のターン、このカードのコピー3枚を[gold]手札[/gold]に加える。\nこのカードが[gold]廃棄[/gold]された時、[gold]ソウル[/gold]1枚を[gold]山札[/gold]に加える。",
+  "THE_ARCHITECT_CUP_CARD_ANVIL.title": "金床",
+  "THE_ARCHITECT_CUP_CARD_ANVIL.description": "[gold]鍛造[/gold]するたび、[gold]手札[/gold]のカード1枚を[gold]アップグレード[/gold]する。",
+  "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.title": "トリックルーム",
+  "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.description": "[gold]手札[/gold]がいっぱいになるまでカードを引く。\nこのターン中、カードをプレイするたび、カードを{Cards:diff()}枚捨てる。",
+  "THE_ARCHITECT_CUP_CARD_ROTATION.title": "自転",
+  "THE_ARCHITECT_CUP_CARD_ROTATION.description": "このカードをプレイした後、このターン中にカードをプレイするたび、[gold]捨て札[/gold]からカード1枚を[gold]山札[/gold]の一番上に置く。"
 }

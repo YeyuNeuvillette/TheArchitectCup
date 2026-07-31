@@ -26,5 +26,13 @@
   "THE_ARCHITECT_CUP_CARD_AGITATION.title": "Agitation",
   "THE_ARCHITECT_CUP_CARD_AGITATION.description": "Gain {Energy:energyIcons()}. This turn, you can only play cards tied for the highest Energy cost in your hand.",
   "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.title": "Vakuu Teaches You to Play",
-  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "If you play cards from left to right during a turn, [gold]retain[/gold] all your [gold]Block[/gold] and your [gold]hand[/gold] that turn. You may skip cards that cannot be played."
+  "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.description": "If you play cards from left to right during a turn, [gold]retain[/gold] all your [gold]Block[/gold] and your [gold]hand[/gold] that turn. You may skip cards that cannot be played.",
+  "THE_ARCHITECT_CUP_CARD_HAUNTING.title": "Haunting",
+  "THE_ARCHITECT_CUP_CARD_HAUNTING.description": "Next turn, add 3 copies of this card to your [gold]Hand[/gold].\nWhen this card is [gold]Exhausted[/gold], add a [gold]Soul[/gold] to your [gold]Draw Pile[/gold].",
+  "THE_ARCHITECT_CUP_CARD_ANVIL.title": "Anvil",
+  "THE_ARCHITECT_CUP_CARD_ANVIL.description": "Whenever you [gold]Forge[/gold], [gold]Upgrade[/gold] a card in your [gold]Hand[/gold].",
+  "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.title": "Trick Room",
+  "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.description": "Draw until your [gold]Hand[/gold] is full.\nWhenever you play a card this turn, discard {Cards:diff()} card(s).",
+  "THE_ARCHITECT_CUP_CARD_ROTATION.title": "Rotation",
+  "THE_ARCHITECT_CUP_CARD_ROTATION.description": "After playing this card, whenever you play a card this turn, put a card from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold]."
 }
