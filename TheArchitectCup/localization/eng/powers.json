@@ -28,5 +28,9 @@
   "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.selectionScreenPrompt": "Choose a card from your discard pile to put on top of your draw pile.",
   "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.title": "Deadlock",
   "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.description": "When the marked player's turn starts, the holder skips that turn.",
-  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "When {Player}'s turn starts, the holder skips that turn."
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "When {Player}'s turn starts, the holder skips that turn.",
+  "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.title": "Boost Away",
+  "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.description": "Escape from combat after [blue]{Amount}[/blue] turns. Gain [blue]1[/blue] random combat reward.",
+  "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.title": "One-Two Punch",
+  "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "Whenever you play a card this turn, swap your [gold]Strength[/gold] and [gold]Dexterity[/gold]."
 }

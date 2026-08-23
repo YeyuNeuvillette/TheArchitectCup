@@ -40,5 +40,15 @@
   "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.title": "Temporary Pact",
   "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.description": "Lose {HpLoss:diff()} HP. Add an extra card reward after this combat.\nAfter {Combats} combat(s), remove this card from your deck.",
   "THE_ARCHITECT_CUP_CARD_CORONATION.title": "Coronation",
-  "THE_ARCHITECT_CUP_CARD_CORONATION.description": "Choose 1 of 3 random {IfUpgraded:show:[gold]upgraded[/gold] |}[gold]Champion[/gold] cards to add to your [gold]Hand[/gold]. It can be played for free this turn."
+  "THE_ARCHITECT_CUP_CARD_CORONATION.description": "Choose 1 of 3 random {IfUpgraded:show:[gold]upgraded[/gold] |}[gold]Champion[/gold] cards to add to your [gold]Hand[/gold]. It can be played for free this turn.",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_COOLANT.title": "Coolant",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_COOLANT.description": "Channel 3 [gold]Frost[/gold] Orbs.\nGain 1 [gold]Focus[/gold] this turn for each [gold]Frost[/gold] Orb you have Channeled this turn.",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_NOSTALGIA.title": "Nostalgia",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_NOSTALGIA.description": "Add 1 random {IfUpgraded:show:[gold]Upgraded[/gold] |}forgotten card from the past to your [gold]Hand[/gold]. It is free to play this turn.",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_BOOST_AWAY.title": "Boost Away",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_BOOST_AWAY.description": "Escape from combat after {Turns:diff()} turns. Gain 1 random combat reward.",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_ONE_TWO_PUNCH.title": "One-Two Punch",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_ONE_TWO_PUNCH.description": "After playing this card, whenever you play a card this turn, swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_FIGHT_ME.title": "Fight Me!",
+  "THE_ARCHITECT_CUP_CARD_PHASE4_FIGHT_ME.description": "Deal {Damage:diff()} damage.\nIf the enemy does not intend to attack, change its intent this turn to deal {EnemyDamage:diff()} damage."
 }

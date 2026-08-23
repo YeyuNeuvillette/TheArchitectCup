@@ -24,4 +24,9 @@ public static class ArchitectCupCardIds
     public const string DeadLock = "THE_ARCHITECT_CUP_CARD_DEAD_LOCK";
     public const string TemporaryPact = "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT";
     public const string Coronation = "THE_ARCHITECT_CUP_CARD_CORONATION";
+    public const string Phase4Coolant = "THE_ARCHITECT_CUP_CARD_PHASE4_COOLANT";
+    public const string Phase4Nostalgia = "THE_ARCHITECT_CUP_CARD_PHASE4_NOSTALGIA";
+    public const string Phase4BoostAway = "THE_ARCHITECT_CUP_CARD_PHASE4_BOOST_AWAY";
+    public const string Phase4OneTwoPunch = "THE_ARCHITECT_CUP_CARD_PHASE4_ONE_TWO_PUNCH";
+    public const string Phase4FightMe = "THE_ARCHITECT_CUP_CARD_PHASE4_FIGHT_ME";
 }

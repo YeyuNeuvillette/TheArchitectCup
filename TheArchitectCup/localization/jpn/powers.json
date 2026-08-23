@@ -28,5 +28,9 @@
   "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.selectionScreenPrompt": "捨て札からカードを1枚選び、山札の一番上に置く。",
   "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.title": "膠着",
   "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.description": "指定されたプレイヤーのターン開始時、所持者はそのターンをスキップする。",
-  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "{Player}のターン開始時、所持者はそのターンをスキップする。"
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "{Player}のターン開始時、所持者はそのターンをスキップする。",
+  "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.title": "高速離脱",
+  "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.description": "[blue]{Amount}[/blue]ターン後に戦闘から逃走する。ランダムな戦闘報酬を[blue]1[/blue]つ得る。",
+  "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.title": "ワンツーパンチ",
+  "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "このターン中にカードをプレイするたび、自分の[gold]筋力[/gold]と[gold]敏捷性[/gold]を入れ替える。"
 }
