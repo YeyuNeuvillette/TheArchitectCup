@@ -17,7 +17,8 @@ internal sealed record ArchitectCupCardDefinition(
     CardMultiplayerConstraint MultiplayerConstraint,
     bool ShowInCompendium,
     Func<CardSettingsData, bool>? ReadEnabled,
-    Action<CardSettingsData, bool>? WriteEnabled)
+    Action<CardSettingsData, bool>? WriteEnabled,
+    bool IsChampion = false)
 {
     internal bool Configurable => SettingId != null && ReadEnabled != null && WriteEnabled != null;
 
@@ -63,7 +64,8 @@ internal static class ArchitectCupCardCatalog
         Configurable<BurnTheMountain>(ArchitectCupCardIds.BurnTheMountain, 1, "BlueGhost", "Burn the Mountain", "burn_the_mountain",
             static data => data.BurnTheMountainEnabled,
             static (data, value) => data.BurnTheMountainEnabled = value,
-            CardMultiplayerConstraint.MultiplayerOnly),
+            CardMultiplayerConstraint.MultiplayerOnly,
+            isChampion: true),
         Configurable<BeeBroOnTheRun>(ArchitectCupCardIds.BeeBroOnTheRun, 1, "阿迪", "Bee Bro on the Run", "bee_bro_on_the_run",
             static data => data.BeeBroOnTheRunEnabled,
             static (data, value) => data.BeeBroOnTheRunEnabled = value,
@@ -79,14 +81,37 @@ internal static class ArchitectCupCardCatalog
             static (data, value) => data.VakuuTeachesUToPlayEnabled = value),
         Configurable<LikeShadow>(ArchitectCupCardIds.LikeShadow, 2, "Kijin Seija 正邪", "Like a Shadow", "like_shadow",
             static data => data.LikeShadowEnabled,
-            static (data, value) => data.LikeShadowEnabled = value),
+            static (data, value) => data.LikeShadowEnabled = value,
+            isChampion: true),
         Configurable<Agitation>(ArchitectCupCardIds.Agitation, 2, "Alome", "Agitation", "agitation",
             static data => data.AgitationEnabled,
             static (data, value) => data.AgitationEnabled = value),
+        Configurable<Anvil>(ArchitectCupCardIds.Anvil, 3, "尘世微名", "Anvil", "anvil",
+            static data => data.AnvilEnabled,
+            static (data, value) => data.AnvilEnabled = value),
+        Configurable<DeadLock>(ArchitectCupCardIds.DeadLock, 3, "一口香茶", "Deadlock", "dead_lock",
+            static data => data.DeadLockEnabled,
+            static (data, value) => data.DeadLockEnabled = value),
+        Configurable<Haunting>(ArchitectCupCardIds.Haunting, 3, "酥润", "Haunting", "haunting",
+            static data => data.HauntingEnabled,
+            static (data, value) => data.HauntingEnabled = value,
+            isChampion: true),
+        Configurable<Rotation>(ArchitectCupCardIds.Rotation, 3, "快乐鸟", "Rotation", "rotation",
+            static data => data.RotationEnabled,
+            static (data, value) => data.RotationEnabled = value),
+        Configurable<TemporaryPact>(ArchitectCupCardIds.TemporaryPact, 3, "方伊言水", "Temporary Pact", "temporary_pact",
+            static data => data.TemporaryPactEnabled,
+            static (data, value) => data.TemporaryPactEnabled = value),
+        Configurable<TrickRoom>(ArchitectCupCardIds.TrickRoom, 3, "若", "Trick Room", "trick_room",
+            static data => data.TrickRoomEnabled,
+            static (data, value) => data.TrickRoomEnabled = value),
     ];
 
     internal static IEnumerable<ArchitectCupCardDefinition> ConfigurableCards =>
         All.Where(static definition => definition.Configurable);
+
+    internal static IEnumerable<ArchitectCupCardDefinition> ChampionCards =>
+        All.Where(static definition => definition.IsChampion);
 
     internal static bool TryGet(string cardId, out ArchitectCupCardDefinition definition)
     {
@@ -103,7 +128,8 @@ internal static class ArchitectCupCardCatalog
         string settingId,
         Func<CardSettingsData, bool> readEnabled,
         Action<CardSettingsData, bool> writeEnabled,
-        CardMultiplayerConstraint multiplayerConstraint = CardMultiplayerConstraint.None)
+        CardMultiplayerConstraint multiplayerConstraint = CardMultiplayerConstraint.None,
+        bool isChampion = false)
         where TCard : CardModel =>
         new(
             id,
@@ -115,7 +141,8 @@ internal static class ArchitectCupCardCatalog
             multiplayerConstraint,
             true,
             readEnabled,
-            writeEnabled);
+            writeEnabled,
+            isChampion);
 
     private static ArchitectCupCardDefinition Generated<TCard>(
         string id,

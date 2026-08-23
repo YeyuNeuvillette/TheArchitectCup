@@ -17,12 +17,16 @@ public class HauntingPower : BasePower
     private class Data
     {
         // Please refer to NightmarePower.
+        public readonly List<CardBatch> cards = [];
+    }
+
+    private class CardBatch
+    {
         public CardModel? card;
+        public int count;
     }
 
     public override PowerType Type => PowerType.Buff;
-
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -37,26 +41,55 @@ public class HauntingPower : BasePower
     {
         if (player == Owner.Player)
         {
-            CardModel? card = GetInternalData<Data>().card;
-            if (card == null)
+            List<CardBatch> cards = GetInternalData<Data>().cards;
+            if (cards.Count == 0)
             {
                 await PowerCmd.Remove(this);
                 return;
             }
-            for (int i = 0; i < Amount; i++)
+
+            int remaining = Amount;
+            foreach (CardBatch batch in cards)
             {
-                CardModel card2 = card.CreateClone();
-                await CardPileCmd.AddGeneratedCardToCombat(card2, PileType.Hand, Owner.Player);
+                if (batch.card == null || batch.count <= 0 || remaining <= 0)
+                {
+                    continue;
+                }
+
+                int count = Math.Min(batch.count, remaining);
+                for (int i = 0; i < count; i++)
+                {
+                    await CardPileCmd.AddGeneratedCardToCombat(batch.card.CreateClone(), PileType.Hand, Owner.Player);
+                }
+
+                remaining -= count;
             }
+
             await PowerCmd.Remove(this);
         }
     }
 
     public void SetCard(CardModel card)
     {
+        Data data = GetInternalData<Data>();
+        data.cards.Clear();
+        AddCard(card, Amount);
+    }
+
+    internal void AddCard(CardModel card, int count)
+    {
+        if (count <= 0)
+        {
+            return;
+        }
+
         CardModel cardModel = card.CreateClone();
         CardCmd.ClearAffliction(cardModel);
-        GetInternalData<Data>().card = cardModel;
+        GetInternalData<Data>().cards.Add(new CardBatch
+        {
+            card = cardModel,
+            count = count
+        });
         ((StringVar)DynamicVars["Card"]).StringValue = cardModel.Title;
     }
 }

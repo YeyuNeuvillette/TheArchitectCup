@@ -17,11 +17,16 @@
   "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title": "Vakuu Teaches You to Play",
   "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.description": "If you play cards from left to right this turn, retain all your Block and your hand. You may skip cards that cannot be played.",
   "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.title": "Haunting",
-  "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.description": "Next turn, add [blue]{Amount}[/blue] [gold]{Card}[/gold] to your [gold]Hand[/gold].",
+  "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.description": "Next turn, add copies of the haunted card to your [gold]Hand[/gold].",
+  "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.smartDescription": "Next turn, add [blue]{Amount}[/blue] [gold]{Card}[/gold] to your [gold]Hand[/gold].",
   "THE_ARCHITECT_CUP_POWER_ANVIL_POWER.title": "Anvil",
   "THE_ARCHITECT_CUP_POWER_ANVIL_POWER.description": "Whenever you [gold]Forge[/gold], [gold]Upgrade[/gold] [blue]{Amount}[/blue] card(s) in your [gold]Hand[/gold].",
   "THE_ARCHITECT_CUP_POWER_TRICK_ROOM_POWER.title": "Trick Room",
   "THE_ARCHITECT_CUP_POWER_TRICK_ROOM_POWER.description": "Whenever you play a card this turn, discard [blue]{Amount}[/blue] card(s).",
   "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.title": "Rotation",
-  "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.description": "Whenever you play a card this turn, put [blue]{Amount}[/blue] card(s) from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold]."
+  "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.description": "Whenever you play a card this turn, put [blue]{Amount}[/blue] card(s) from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold].",
+  "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.selectionScreenPrompt": "Choose a card from your discard pile to put on top of your draw pile.",
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.title": "Deadlock",
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.description": "When the marked player's turn starts, the holder skips that turn.",
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "When {Player}'s turn starts, the holder skips that turn."
 }

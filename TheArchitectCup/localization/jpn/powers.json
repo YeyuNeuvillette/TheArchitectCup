@@ -17,11 +17,16 @@
   "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title": "ヴァクがプレイを教える",
   "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.description": "このターン、左から右の順でカードをプレイした場合、すべてのブロックと手札を保留する。プレイできないカードは飛ばしてよい。",
   "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.title": "付きまとう影",
-  "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.description": "次のターン、[gold]{Card}[/gold]を[blue]{Amount}[/blue]枚[gold]手札[/gold]に加える。",
+  "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.description": "次のターン、付きまとわれたカードのコピーを[gold]手札[/gold]に加える。",
+  "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.smartDescription": "次のターン、[gold]{Card}[/gold]を[blue]{Amount}[/blue]枚[gold]手札[/gold]に加える。",
   "THE_ARCHITECT_CUP_POWER_ANVIL_POWER.title": "金床",
   "THE_ARCHITECT_CUP_POWER_ANVIL_POWER.description": "[gold]鍛造[/gold]するたび、[gold]手札[/gold]のカード[blue]{Amount}[/blue]枚を[gold]アップグレード[/gold]する。",
   "THE_ARCHITECT_CUP_POWER_TRICK_ROOM_POWER.title": "トリックルーム",
   "THE_ARCHITECT_CUP_POWER_TRICK_ROOM_POWER.description": "このターン中、カードをプレイするたび、カードを[blue]{Amount}[/blue]枚捨てる。",
   "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.title": "自転",
-  "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.description": "このターン中、カードをプレイするたび、[gold]捨て札[/gold]からカード[blue]{Amount}[/blue]枚を[gold]山札[/gold]の一番上に置く。"
+  "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.description": "このターン中、カードをプレイするたび、[gold]捨て札[/gold]からカード[blue]{Amount}[/blue]枚を[gold]山札[/gold]の一番上に置く。",
+  "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.selectionScreenPrompt": "捨て札からカードを1枚選び、山札の一番上に置く。",
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.title": "膠着",
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.description": "指定されたプレイヤーのターン開始時、所持者はそのターンをスキップする。",
+  "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "{Player}のターン開始時、所持者はそのターンをスキップする。"
 }

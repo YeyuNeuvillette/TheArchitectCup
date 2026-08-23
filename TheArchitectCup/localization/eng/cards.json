@@ -34,5 +34,11 @@
   "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.title": "Trick Room",
   "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.description": "Draw until your [gold]Hand[/gold] is full.\nWhenever you play a card this turn, discard {Cards:diff()} card(s).",
   "THE_ARCHITECT_CUP_CARD_ROTATION.title": "Rotation",
-  "THE_ARCHITECT_CUP_CARD_ROTATION.description": "After playing this card, whenever you play a card this turn, put a card from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold]."
+  "THE_ARCHITECT_CUP_CARD_ROTATION.description": "After playing this card, whenever you play a card this turn, put a card from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold].",
+  "THE_ARCHITECT_CUP_CARD_DEAD_LOCK.title": "Deadlock",
+  "THE_ARCHITECT_CUP_CARD_DEAD_LOCK.description": "Deal {Damage:diff()} damage.\nAt the start of your next turn, you and the target each skip that turn.",
+  "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.title": "Temporary Pact",
+  "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.description": "Lose {HpLoss:diff()} HP. Add an extra card reward after this combat.\nAfter {Combats} combat(s), remove this card from your deck.",
+  "THE_ARCHITECT_CUP_CARD_CORONATION.title": "Coronation",
+  "THE_ARCHITECT_CUP_CARD_CORONATION.description": "Choose 1 of 3 random {IfUpgraded:show:[gold]upgraded[/gold] |}[gold]Champion[/gold] cards to add to your [gold]Hand[/gold]. It can be played for free this turn."
 }

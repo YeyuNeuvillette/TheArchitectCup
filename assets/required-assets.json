@@ -32,6 +32,7 @@
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_three_legged_race_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_vakuu_teaches_u_to_play_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/ui/the_architect_cup_one.png", "width": 64, "height": 64 },
-    { "path": "TheArchitectCup/images/ui/the_architect_cup_two.png", "width": 64, "height": 64 }
+    { "path": "TheArchitectCup/images/ui/the_architect_cup_two.png", "width": 64, "height": 64 },
+    { "path": "TheArchitectCup/images/ui/the_architect_cup_three.png", "width": 64, "height": 64 }
   ]
 }

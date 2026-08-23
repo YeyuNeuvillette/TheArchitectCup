@@ -17,11 +17,16 @@
     "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.title": "瓦库教你打整局",
     "THE_ARCHITECT_CUP_POWER_VAKUU_TEACHES_U_TO_PLAY_POWER.description": "如果你按从左到右的顺序出牌，本回合[gold]保留[/gold]你的所有[gold]格挡[/gold]和[gold]手牌[/gold]。",
     "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.title": "阴魂不散",
-    "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.description": "在下个回合将[blue]{Amount}[/blue]张[gold]{Card}[/gold]加入你的[gold]手牌[/gold]。",
+    "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.description": "在下个回合将被缠上的卡牌复制品加入你的[gold]手牌[/gold]。",
+    "THE_ARCHITECT_CUP_POWER_HAUNTING_POWER.smartDescription": "在下个回合将[blue]{Amount}[/blue]张[gold]{Card}[/gold]加入你的[gold]手牌[/gold]。",
     "THE_ARCHITECT_CUP_POWER_ANVIL_POWER.title": "铁砧",
     "THE_ARCHITECT_CUP_POWER_ANVIL_POWER.description": "每当你[gold]铸造[/gold]时，[gold]升级[/gold]你[gold]手牌[/gold]中的[blue]{Amount}[/blue]张牌。",
     "THE_ARCHITECT_CUP_POWER_TRICK_ROOM_POWER.title": "戏法空间",
     "THE_ARCHITECT_CUP_POWER_TRICK_ROOM_POWER.description": "你在本回合内每打出一张牌，丢弃[blue]{Amount}[/blue]张牌。",
     "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.title": "自转",
-    "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.description": "每当你在本回合打出卡牌时，将[gold]弃牌堆[/gold]中的[blue]{Amount}[/blue]张牌放到你的[gold]抽牌堆[/gold]的顶部。"
+    "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.description": "每当你在本回合打出卡牌时，将[gold]弃牌堆[/gold]中的[blue]{Amount}[/blue]张牌放到你的[gold]抽牌堆[/gold]的顶部。",
+    "THE_ARCHITECT_CUP_POWER_ROTATION_POWER.selectionScreenPrompt": "选择弃牌堆中的一张牌，放到抽牌堆顶部。",
+    "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.title": "僵持",
+    "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.description": "当被标记玩家的回合开始时，持有者跳过该回合。",
+    "THE_ARCHITECT_CUP_POWER_DEAD_LOCK_POWER.smartDescription": "当{Player}的回合开始时，持有者跳过该回合。"
 }

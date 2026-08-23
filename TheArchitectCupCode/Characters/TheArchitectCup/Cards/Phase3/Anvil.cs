@@ -18,7 +18,6 @@ public sealed class Anvil() : ArchitectCupCard(2, CardType.Power, CardRarity.Unc
         ..HoverTipFactory.FromForge()
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new PowerVar<AnvilPower>(1m)

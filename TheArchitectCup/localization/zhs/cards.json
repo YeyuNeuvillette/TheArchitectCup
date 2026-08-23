@@ -22,7 +22,7 @@
     "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.title": "决进",
     "THE_ARCHITECT_CUP_CARD_PRESS_FORWARD.description": "升级你的[gold]君王之剑[/gold]。每当[gold]君王之剑[/gold]在你的[gold]手牌[/gold]中，你必须优先打出[gold]君王之剑[/gold]。",
     "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.title": "如影随形",
-    "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.description": "打出最后进入[gold]弃牌堆[/gold]的牌。",
+    "THE_ARCHITECT_CUP_CARD_LIKE_SHADOW.description": "打出[gold]弃牌堆[/gold]顶的牌。",
     "THE_ARCHITECT_CUP_CARD_AGITATION.title": "焦躁",
     "THE_ARCHITECT_CUP_CARD_AGITATION.description": "获得{Energy:energyIcons()}。这个回合，你只能打出耗能最高的牌。",
     "THE_ARCHITECT_CUP_CARD_VAKUU_TEACHES_U_TO_PLAY.title": "瓦库教你打整局",
@@ -34,5 +34,11 @@
     "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.title": "戏法空间",
     "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.description": "抽牌直到抽满[gold]手牌[/gold]。\n你在本回合内每打出一张牌，丢弃{Cards:diff()}张牌。",
     "THE_ARCHITECT_CUP_CARD_ROTATION.title": "自转",
-    "THE_ARCHITECT_CUP_CARD_ROTATION.description": "打出此牌后，每当你在本回合打出卡牌时，将[gold]弃牌堆[/gold]中的一张牌放到你的[gold]抽牌堆[/gold]的顶部。"
+    "THE_ARCHITECT_CUP_CARD_ROTATION.description": "打出此牌后，每当你在本回合打出卡牌时，将[gold]弃牌堆[/gold]中的一张牌放到你的[gold]抽牌堆[/gold]的顶部。",
+    "THE_ARCHITECT_CUP_CARD_DEAD_LOCK.title": "僵持",
+    "THE_ARCHITECT_CUP_CARD_DEAD_LOCK.description": "造成{Damage:diff()}点伤害。\n在下个回合，击晕该敌人。在你的下个回合开始时，结束你的回合。",
+    "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.title": "临时契约",
+    "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.description": "失去{HpLoss:diff()}点生命。额外获得一次卡牌奖励。在{Combats}场战斗后从你的牌组中移除。",
+    "THE_ARCHITECT_CUP_CARD_CORONATION.title": "戴冠",
+    "THE_ARCHITECT_CUP_CARD_CORONATION.description": "从三张{IfUpgraded:show:[gold]升级后的[/gold]|}[gold]冠军[/gold]牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合中可以免费打出。"
 }

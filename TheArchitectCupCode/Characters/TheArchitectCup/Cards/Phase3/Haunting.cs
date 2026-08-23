@@ -30,10 +30,11 @@ public sealed class Haunting() : ArchitectCupCard(0, CardType.Skill, CardRarity.
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        int previousAmount = Owner.Creature.GetPower<HauntingPower>()?.Amount ?? 0;
         HauntingPower? power = await PowerCmd.Apply<HauntingPower>(choiceContext, Owner.Creature, 3m, Owner.Creature, this);
-        if(power != null)
+        if (power != null)
         {
-            power.SetCard(this);
+            power.AddCard(this, power.Amount - previousAmount);
         }
     }
 

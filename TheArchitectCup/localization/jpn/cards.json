@@ -34,5 +34,11 @@
   "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.title": "トリックルーム",
   "THE_ARCHITECT_CUP_CARD_TRICK_ROOM.description": "[gold]手札[/gold]がいっぱいになるまでカードを引く。\nこのターン中、カードをプレイするたび、カードを{Cards:diff()}枚捨てる。",
   "THE_ARCHITECT_CUP_CARD_ROTATION.title": "自転",
-  "THE_ARCHITECT_CUP_CARD_ROTATION.description": "このカードをプレイした後、このターン中にカードをプレイするたび、[gold]捨て札[/gold]からカード1枚を[gold]山札[/gold]の一番上に置く。"
+  "THE_ARCHITECT_CUP_CARD_ROTATION.description": "このカードをプレイした後、このターン中にカードをプレイするたび、[gold]捨て札[/gold]からカード1枚を[gold]山札[/gold]の一番上に置く。",
+  "THE_ARCHITECT_CUP_CARD_DEAD_LOCK.title": "膠着",
+  "THE_ARCHITECT_CUP_CARD_DEAD_LOCK.description": "{Damage:diff()}ダメージを与える。\n次の自分のターン開始時、自分と対象はそれぞれそのターンをスキップする。",
+  "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.title": "一時的な契約",
+  "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT.description": "HPを{HpLoss:diff()}失う。この戦闘後、追加のカード報酬を得る。\n{Combats}戦闘後、このカードをデッキから削除する。",
+  "THE_ARCHITECT_CUP_CARD_CORONATION.title": "戴冠",
+  "THE_ARCHITECT_CUP_CARD_CORONATION.description": "ランダムな{IfUpgraded:show:[gold]アップグレード済み[/gold]の|}[gold]チャンピオン[/gold]カード3枚から1枚を選び、[gold]手札[/gold]に加える。このターン、それは無料でプレイできる。"
 }

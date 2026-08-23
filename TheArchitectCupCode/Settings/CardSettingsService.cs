@@ -51,6 +51,7 @@ internal static class CardSettingsService
 
             AddPhaseSection(page, 1);
             AddPhaseSection(page, 2);
+            AddPhaseSection(page, 3);
         });
     }
 

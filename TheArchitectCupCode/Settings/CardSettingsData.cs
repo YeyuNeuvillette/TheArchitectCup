@@ -15,4 +15,10 @@ public sealed class CardSettingsData
     public bool VakuuTeachesUToPlayEnabled { get; set; } = true;
     public bool LikeShadowEnabled { get; set; } = true;
     public bool AgitationEnabled { get; set; } = true;
+    public bool AnvilEnabled { get; set; } = true;
+    public bool DeadLockEnabled { get; set; } = true;
+    public bool HauntingEnabled { get; set; } = true;
+    public bool RotationEnabled { get; set; } = true;
+    public bool TemporaryPactEnabled { get; set; } = true;
+    public bool TrickRoomEnabled { get; set; } = true;
 }

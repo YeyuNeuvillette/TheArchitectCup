@@ -21,4 +21,7 @@ public static class ArchitectCupCardIds
     public const string Anvil = "THE_ARCHITECT_CUP_CARD_ANVIL";
     public const string TrickRoom = "THE_ARCHITECT_CUP_CARD_TRICK_ROOM";
     public const string Rotation = "THE_ARCHITECT_CUP_CARD_ROTATION";
+    public const string DeadLock = "THE_ARCHITECT_CUP_CARD_DEAD_LOCK";
+    public const string TemporaryPact = "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT";
+    public const string Coronation = "THE_ARCHITECT_CUP_CARD_CORONATION";
 }
