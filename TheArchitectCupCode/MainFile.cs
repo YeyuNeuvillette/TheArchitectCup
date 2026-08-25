@@ -69,6 +69,16 @@ public partial class MainFile : Node
                     Relation = CardLibraryCompendiumFilterInsertRelation.After,
                 },
             ]);
+        registry.RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupPhase4Pool>(
+            "ARCHITECT_CUP_PHASE4",
+            "ui/the_architect_cup_four.png".ImagePath(),
+            [
+                new()
+                {
+                    VanillaFilterAnchorUniqueName = CardLibraryCompendiumVanillaFilterNames.ColorlessPool,
+                    Relation = CardLibraryCompendiumFilterInsertRelation.After,
+                },
+            ]);
 
         Logger.Info("TheArchitectCup mod initialized successfully");
     }

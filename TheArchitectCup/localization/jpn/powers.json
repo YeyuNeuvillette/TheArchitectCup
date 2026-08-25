@@ -32,5 +32,7 @@
   "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.title": "高速離脱",
   "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.description": "[blue]{Amount}[/blue]ターン後に戦闘から逃走する。ランダムな戦闘報酬を[blue]1[/blue]つ得る。",
   "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.title": "ワンツーパンチ",
-  "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "このターン中にカードをプレイするたび、自分の[gold]筋力[/gold]と[gold]敏捷性[/gold]を入れ替える。"
+  "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "このターン中にカードをプレイするたび、自分の[gold]筋力[/gold]と[gold]敏捷性[/gold]を入れ替える。",
+  "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.title": "冷却剤",
+  "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.description": "このターン、[gold]集中力[/gold]を[blue]{Amount}[/blue]得る。"
 }

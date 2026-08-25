@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Commands;
+using ArchitectOneTwoPunchPower = TheArchitectCup.Characters.TheArchitectCup.Powers.OneTwoPunchPower;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
@@ -22,7 +23,7 @@ public sealed class Phase4OneTwoPunch() : ArchitectCupCard(0, CardType.Skill, Ca
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<OneTwoPunchPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+        await PowerCmd.Apply<ArchitectOneTwoPunchPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

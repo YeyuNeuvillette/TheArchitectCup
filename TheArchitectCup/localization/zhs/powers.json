@@ -32,5 +32,7 @@
     "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.title": "高速脱离",
     "THE_ARCHITECT_CUP_POWER_BOOST_AWAY_POWER.description": "[blue]{Amount}[/blue]回合后逃离战斗。随机获得[blue]1[/blue]种战斗奖励。",
     "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.title": "连环拳",
-    "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "你在本回合每打出一张牌，就互换你的[gold]力量[/gold]和[gold]敏捷[/gold]。"
+    "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "你在本回合每打出一张牌，就互换你的[gold]力量[/gold]和[gold]敏捷[/gold]。",
+    "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.title": "冷却剂",
+    "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.description": "在本回合获得[blue]{Amount}[/blue]点[gold]集中[/gold]。"
 }

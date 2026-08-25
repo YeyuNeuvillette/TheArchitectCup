@@ -1,10 +1,15 @@
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using STS2RitsuLib.Interop.AutoRegistration;
 using TheArchitectCup.Characters.Base;
+using TheArchitectCup.Features.Rewards;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
 
@@ -31,10 +36,28 @@ public class BoostAwayPower : BasePower
         AbstractRoom? currentRoom = player.RunState.CurrentRoom;
         if (currentRoom is CombatRoom combatRoom)
         {
-            int num = player.RunState.Rng.Niche.NextInt(3);
-            // TODO
+            if (CombatManager.Instance.IsOverOrEnding)
+                return;
+
+            Reward reward = player.RunState.Rng.Niche.NextInt(3) switch
+            {
+                0 => new GoldReward(combatRoom.Encounter.MinGoldReward, combatRoom.Encounter.MaxGoldReward, player),
+                1 => new CardReward(
+                    CardCreationOptions.ForRoom(player, combatRoom.RoomType)
+                        .WithFlags(CardCreationFlags.IsFromCombat),
+                    3,
+                    player),
+                _ => new RelicReward(player),
+            };
+
+            BoostAwayRewardService.SetReward(combatRoom, player, reward);
+            Flash();
+            await PowerCmd.Remove(this);
+
+            foreach (var enemy in combatRoom.CombatState.Enemies.Where(static enemy => enemy.IsAlive).ToList())
+                await CreatureCmd.Escape(enemy, removeCreatureNode: true);
+
+            await CombatManager.Instance.CheckWinCondition();
         }
     }
-
-    
 }

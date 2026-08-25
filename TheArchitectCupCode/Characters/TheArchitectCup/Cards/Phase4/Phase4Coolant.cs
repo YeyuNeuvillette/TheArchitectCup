@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Models.Powers;
+using TheArchitectCup.Characters.TheArchitectCup.Powers;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
@@ -30,8 +31,8 @@ public sealed class Phase4Coolant() : ArchitectCupCard(2, CardType.Skill, CardRa
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CalculationBaseVar(0m),
         new CalculationExtraVar(1m),
-        new CalculatedVar("CalculatedFocus").WithMultiplier((CardModel card, Creature? _) => CombatManager.Instance.History.Entries.OfType<OrbChanneledEntry>()
-        .Count((OrbChanneledEntry e) => e.Actor.Player == card.Owner && e.HappenedThisTurn(CombatState) && e.Orb is FrostOrb))
+        new CalculatedVar("CalculatedFocus").WithMultiplier(static (CardModel card, Creature? _) => CombatManager.Instance.History.Entries.OfType<OrbChanneledEntry>()
+        .Count((OrbChanneledEntry e) => e.Actor.Player == card.Owner && e.HappenedThisTurn(card.CombatState) && e.Orb is FrostOrb))
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -41,8 +42,7 @@ public sealed class Phase4Coolant() : ArchitectCupCard(2, CardType.Skill, CardRa
         {
             await OrbCmd.Channel<FrostOrb>(choiceContext, Owner);
         }
-        // TODO: 这里用同步的power顶上
-        await PowerCmd.Apply<SynchronizePower>(choiceContext, Owner.Creature, ((CalculatedVar)DynamicVars["CalculatedFocus"]).Calculate(cardPlay.Target), Owner.Creature, this);
+        await PowerCmd.Apply<Phase4CoolantPower>(choiceContext, Owner.Creature, ((CalculatedVar)DynamicVars["CalculatedFocus"]).Calculate(cardPlay.Target), Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

@@ -52,6 +52,7 @@ internal static class CardSettingsService
             AddPhaseSection(page, 1);
             AddPhaseSection(page, 2);
             AddPhaseSection(page, 3);
+            AddPhaseSection(page, 4);
         });
     }
 
@@ -112,9 +113,28 @@ internal static class CardSettingsService
         string sectionKey = $"THE_ARCHITECT_CUP_SECTION_PHASE{phase}";
         page.AddSection(sectionId, section =>
         {
-            section.WithTitle(ModSettingsText.LocString(Table, sectionKey, $"Phase {phase}"));
-            foreach (ArchitectCupCardDefinition definition in ArchitectCupCardCatalog.ConfigurableCards.Where(
-                         definition => definition.Phase == phase))
+            ArchitectCupCardDefinition[] phaseCards = ArchitectCupCardCatalog.ConfigurableCards
+                .Where(definition => definition.Phase == phase)
+                .ToArray();
+
+            section.WithTitle(ModSettingsText.LocString(Table, sectionKey, $"Phase {phase}"))
+                .Collapsible(startCollapsed: true);
+            section.AddButton(
+                $"{sectionId}_enable_all",
+                ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_BULK_ACTIONS", "Bulk actions"),
+                ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_ENABLE_ALL", "Enable all"),
+                host => SetPhaseEnabled(phaseCards, true, host),
+                ModSettingsButtonTone.Accent,
+                ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_ENABLE_ALL_DESCRIPTION", "Enable every card in this phase."));
+            section.AddButton(
+                $"{sectionId}_disable_all",
+                ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_BULK_ACTIONS", "Bulk actions"),
+                ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_DISABLE_ALL", "Disable all"),
+                host => SetPhaseEnabled(phaseCards, false, host),
+                ModSettingsButtonTone.Normal,
+                ModSettingsText.LocString(Table, "THE_ARCHITECT_CUP_DISABLE_ALL_DESCRIPTION", "Disable every card in this phase."));
+
+            foreach (ArchitectCupCardDefinition definition in phaseCards)
             {
                 section.AddToggle(
                     definition.SettingId!,
@@ -126,5 +146,26 @@ internal static class CardSettingsService
                         $"Disabling this card will prevent it from appearing in card pools. Author: {definition.Author}"));
             }
         });
+    }
+
+    private static void SetPhaseEnabled(
+        IEnumerable<ArchitectCupCardDefinition> phaseCards,
+        bool enabled,
+        IModSettingsUiActionHost host)
+    {
+        foreach (ArchitectCupCardDefinition definition in phaseCards)
+        {
+            ModSettingsValueBinding<CardSettingsData, bool> binding = Bindings[definition.Id];
+            if (binding.Read() == enabled)
+                continue;
+
+            binding.Write(enabled);
+            host.MarkDirty(binding);
+        }
+
+        if (CurrentRunState is not null && GameCompatibility.IsRunAuthority())
+            SyncLocalSettingsToRunState(CurrentRunState);
+
+        host.RequestRefreshAfterDataModelBatchChange();
     }
 }

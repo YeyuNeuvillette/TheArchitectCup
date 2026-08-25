@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Commands;
 
@@ -20,7 +19,13 @@ public sealed class Phase4Nostalgia() : ArchitectCupCard(0, CardType.Skill, Card
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardModel? card = CardFactory.GetDistinctForCombat(Owner, TrashHeap.Cards, 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
+        CardModel[] forgottenCards = TrashHeap.Cards;
+        CardModel? card = forgottenCards.Length == 0
+            ? null
+            : Owner.Creature!.CombatState!.CreateCard(
+                forgottenCards[Owner.RunState.Rng.CombatCardGeneration.NextInt(forgottenCards.Length)],
+                Owner);
+
         if(card != null)
         {
             if (IsUpgraded)

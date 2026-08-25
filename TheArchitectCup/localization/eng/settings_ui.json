@@ -1,6 +1,11 @@
 {
     "THE_ARCHITECT_CUP_SETTINGS_TITLE": "The Architect Cup",
     "THE_ARCHITECT_CUP_MOD_DISPLAY_NAME": "The Architect Cup",
+    "THE_ARCHITECT_CUP_BULK_ACTIONS": "Bulk actions",
+    "THE_ARCHITECT_CUP_ENABLE_ALL": "Enable all",
+    "THE_ARCHITECT_CUP_ENABLE_ALL_DESCRIPTION": "Enable every card in this phase.",
+    "THE_ARCHITECT_CUP_DISABLE_ALL": "Disable all",
+    "THE_ARCHITECT_CUP_DISABLE_ALL_DESCRIPTION": "Disable every card in this phase.",
     "THE_ARCHITECT_CUP_SECTION_PHASE1": "Phase 1",
     "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF_TOGGLE": "Cursed Handkerchief",
     "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 罡璧",
@@ -41,5 +46,16 @@
     "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT_TOGGLE": "Temporary Pact",
     "THE_ARCHITECT_CUP_CARD_TEMPORARY_PACT_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 方伊言水",
     "THE_ARCHITECT_CUP_CARD_TRICK_ROOM_TOGGLE": "Trick Room",
-    "THE_ARCHITECT_CUP_CARD_TRICK_ROOM_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 若"
+    "THE_ARCHITECT_CUP_CARD_TRICK_ROOM_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 若",
+    "THE_ARCHITECT_CUP_SECTION_PHASE4": "Phase 4",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_COOLANT_TOGGLE": "Coolant",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_COOLANT_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 六方最密堆积",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_NOSTALGIA_TOGGLE": "Nostalgia",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_NOSTALGIA_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 阿迪",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_BOOST_AWAY_TOGGLE": "Boost Away",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_BOOST_AWAY_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 🐵（剩余报错：1151条）",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_ONE_TWO_PUNCH_TOGGLE": "One-Two Punch",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_ONE_TWO_PUNCH_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 小肥",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_FIGHT_ME_TOGGLE": "Fight Me!",
+    "THE_ARCHITECT_CUP_CARD_PHASE4_FIGHT_ME_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 登高"
 }

@@ -105,6 +105,22 @@ internal static class ArchitectCupCardCatalog
         Configurable<TrickRoom>(ArchitectCupCardIds.TrickRoom, 3, "若", "Trick Room", "trick_room",
             static data => data.TrickRoomEnabled,
             static (data, value) => data.TrickRoomEnabled = value),
+        Configurable<Phase4Coolant>(ArchitectCupCardIds.Phase4Coolant, 4, "六方最密堆积", "Coolant", "phase4_coolant",
+            static data => data.Phase4CoolantEnabled,
+            static (data, value) => data.Phase4CoolantEnabled = value),
+        Configurable<Phase4Nostalgia>(ArchitectCupCardIds.Phase4Nostalgia, 4, "阿迪", "Nostalgia", "phase4_nostalgia",
+            static data => data.Phase4NostalgiaEnabled,
+            static (data, value) => data.Phase4NostalgiaEnabled = value),
+        Configurable<Phase4BoostAway>(ArchitectCupCardIds.Phase4BoostAway, 4, "🐵（剩余报错：1151条）", "Boost Away", "phase4_boost_away",
+            static data => data.Phase4BoostAwayEnabled,
+            static (data, value) => data.Phase4BoostAwayEnabled = value),
+        Configurable<Phase4OneTwoPunch>(ArchitectCupCardIds.Phase4OneTwoPunch, 4, "小肥", "One-Two Punch", "phase4_one_two_punch",
+            static data => data.Phase4OneTwoPunchEnabled,
+            static (data, value) => data.Phase4OneTwoPunchEnabled = value),
+        Configurable<Phase4FightMe>(ArchitectCupCardIds.Phase4FightMe, 4, "登高", "Fight Me!", "phase4_fight_me",
+            static data => data.Phase4FightMeEnabled,
+            static (data, value) => data.Phase4FightMeEnabled = value,
+            isChampion: true),
     ];
 
     internal static IEnumerable<ArchitectCupCardDefinition> ConfigurableCards =>

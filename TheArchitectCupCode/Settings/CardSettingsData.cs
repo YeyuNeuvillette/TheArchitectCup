@@ -21,4 +21,9 @@ public sealed class CardSettingsData
     public bool RotationEnabled { get; set; } = true;
     public bool TemporaryPactEnabled { get; set; } = true;
     public bool TrickRoomEnabled { get; set; } = true;
+    public bool Phase4CoolantEnabled { get; set; } = true;
+    public bool Phase4NostalgiaEnabled { get; set; } = true;
+    public bool Phase4BoostAwayEnabled { get; set; } = true;
+    public bool Phase4OneTwoPunchEnabled { get; set; } = true;
+    public bool Phase4FightMeEnabled { get; set; } = true;
 }
