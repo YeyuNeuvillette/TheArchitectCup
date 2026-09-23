@@ -6,19 +6,29 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using TheArchitectCup.Characters.TheArchitectCup.Powers;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Cards;
+using TheArchitectCup.Api;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-public abstract class Phase5Emc2() : ArchitectCupCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+public abstract class Phase5Emc2Base() : ArchitectCupCard(
+    1, CardType.Power, CardRarity.Rare, TargetType.Self,
+    sharedPortraitId: ArchitectCupCardIds.Phase5Emc2)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "💤"),
-        EnergyHoverTip
+        new HoverTip(new LocString("static_hover_tips", "CHAMPION_PHASE5.title"), new LocString("static_hover_tips", "CHAMPION_PHASE5.description")),
+        EnergyHoverTip,
+        HoverTipFactory.FromCard<Debris>()
     ];
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<Emc2Power>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+        await CreatureCmd.TriggerAnim(Owner.Creature, "PowerUp", Owner.Character.PowerUpAnimDelay);
+        await PowerCmd.Apply<Emc2Power>(choiceContext, Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
@@ -27,8 +37,8 @@ public abstract class Phase5Emc2() : ArchitectCupCard(1, CardType.Power, CardRar
     }
 }
 
-[RegisterCard(typeof(DefectCardPool))]
-public class Phase5Emc2Defect() : Phase5Emc2{}
+[RegisterCard(typeof(DefectCardPool), FullPublicEntry = ArchitectCupCardIds.Phase5Emc2)]
+public sealed class Phase5Emc2() : Phase5Emc2Base { }
 
-[RegisterCard(typeof(RegentCardPool))]
-public class Phase5Emc2Regent() : Phase5Emc2{}
+[RegisterCard(typeof(RegentCardPool), FullPublicEntry = ArchitectCupCardIds.Phase5Emc2Regent)]
+public sealed class Phase5Emc2Regent() : Phase5Emc2Base { }

@@ -10,10 +10,11 @@ public abstract class BaseCard(
     CardType type,
     CardRarity rarity,
     TargetType targetType,
-    bool shouldShowInCardLibrary = true)
+    bool shouldShowInCardLibrary = true,
+    string? sharedPortraitId = null)
     : ModCardTemplate(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
 {
-    private string ArtFileName => $"{Id.Entry.ToCardArtFileName()}.png";
+    private string ArtFileName => $"{(sharedPortraitId ?? Id.Entry).ToCardArtFileName()}.png";
     private string LegacyArtFileName => $"{Id.Entry.ToLegacyCompactFileName()}.png";
     private string LegacyPrefixedArtFileName => $"{MainFile.ModId.ToLowerInvariant()}_{Id.Entry.ToLegacyCompactFileName()}.png";
     private string ClassNameBasedArtFileName => $"{MainFile.ModId.ToLowerInvariant()}_{GetType().Name.ToLegacyCompactFileName()}.png";

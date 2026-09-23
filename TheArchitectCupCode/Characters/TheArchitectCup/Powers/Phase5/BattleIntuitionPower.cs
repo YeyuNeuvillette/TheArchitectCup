@@ -13,7 +13,10 @@ namespace TheArchitectCup.Characters.TheArchitectCup.Powers;
 [RegisterPower]
 public class BattleIntuitionPower : BasePower
 {
-    public bool _triggeredThisTurn = false;
+    private sealed class Data
+    {
+        public bool TriggeredThisTurn;
+    }
 
     public override PowerType Type => PowerType.Buff;
 
@@ -26,33 +29,35 @@ public class BattleIntuitionPower : BasePower
         new CardsVar(0)
     ];
 
-    public void SetEnergy(decimal value)
-    {
-        DynamicVars.Energy.BaseValue = value;
-    }
+    protected override object InitInternalData() => new Data();
 
-    public void SetCards(decimal value)
+    public void Configure(decimal energy, decimal cards)
     {
-        DynamicVars.Cards.BaseValue = value;
+        DynamicVars.Energy.BaseValue = energy;
+        DynamicVars.Cards.BaseValue = cards;
     }
 
     public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (participants.Contains(Owner))
         {
-            _triggeredThisTurn = false;
+            GetInternalData<Data>().TriggeredThisTurn = false;
         }
         return Task.CompletedTask;
     }
 
     public override async Task AfterHandEmptied(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player == Owner.Player && player.PlayerCombatState != null && IsValidPhase(player.PlayerCombatState.Phase) && !_triggeredThisTurn)
+        Data data = GetInternalData<Data>();
+        if (player == Owner.Player &&
+            player.PlayerCombatState != null &&
+            IsValidPhase(player.PlayerCombatState.Phase) &&
+            !data.TriggeredThisTurn)
         {
+            data.TriggeredThisTurn = true;
             Flash();
             await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, player);
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, player);
-            _triggeredThisTurn = true;
         }
     }
 

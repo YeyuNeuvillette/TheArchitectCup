@@ -34,6 +34,16 @@ internal sealed record ArchitectCupCardDefinition(
 
 internal static class ArchitectCupCardCatalog
 {
+    private static readonly IReadOnlyDictionary<string, string> VariantToCanonicalId =
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            [ArchitectCupCardIds.Phase5EqualValueExchangeRegent] = ArchitectCupCardIds.Phase5EqualValueExchange,
+            [ArchitectCupCardIds.Phase5MovableTypePrintingNecrobinder] = ArchitectCupCardIds.Phase5MovableTypePrinting,
+            [ArchitectCupCardIds.Phase5Emc2Regent] = ArchitectCupCardIds.Phase5Emc2,
+            [ArchitectCupCardIds.Phase5RedeployDefect] = ArchitectCupCardIds.Phase5Redeploy,
+            [ArchitectCupCardIds.Phase5BattleIntuitionSilent] = ArchitectCupCardIds.Phase5BattleIntuition,
+        };
+
     internal static IReadOnlyList<ArchitectCupCardDefinition> All { get; } =
     [
         Configurable<CursedHandkerchief>(ArchitectCupCardIds.CursedHandkerchief, 1, "罡璧", "Cursed Handkerchief", "cursed_handkerchief",
@@ -121,6 +131,22 @@ internal static class ArchitectCupCardCatalog
             static data => data.Phase4FightMeEnabled,
             static (data, value) => data.Phase4FightMeEnabled = value,
             isChampion: true),
+        Configurable<Phase5EqualValueExchange>(ArchitectCupCardIds.Phase5EqualValueExchange, 5, "AlwaysReady", "Equal Exchange", "phase5_equal_value_exchange",
+            static data => data.Phase5EqualValueExchangeEnabled,
+            static (data, value) => data.Phase5EqualValueExchangeEnabled = value),
+        Configurable<Phase5MovableTypePrinting>(ArchitectCupCardIds.Phase5MovableTypePrinting, 5, "盐", "Movable Type Printing", "phase5_movable_type_printing",
+            static data => data.Phase5MovableTypePrintingEnabled,
+            static (data, value) => data.Phase5MovableTypePrintingEnabled = value),
+        Configurable<Phase5Emc2>(ArchitectCupCardIds.Phase5Emc2, 5, "💤", "Mass-Energy Conversion", "phase5_emc2",
+            static data => data.Phase5Emc2Enabled,
+            static (data, value) => data.Phase5Emc2Enabled = value,
+            isChampion: true),
+        Configurable<Phase5Redeploy>(ArchitectCupCardIds.Phase5Redeploy, 5, "尖尖的刀", "Redeploy", "phase5_redeploy",
+            static data => data.Phase5RedeployEnabled,
+            static (data, value) => data.Phase5RedeployEnabled = value),
+        Configurable<Phase5BattleIntuition>(ArchitectCupCardIds.Phase5BattleIntuition, 5, "紫幽梦魇Grimm", "Battle Intuition", "phase5_battle_intuition",
+            static data => data.Phase5BattleIntuitionEnabled,
+            static (data, value) => data.Phase5BattleIntuitionEnabled = value),
     ];
 
     internal static IEnumerable<ArchitectCupCardDefinition> ConfigurableCards =>
@@ -131,6 +157,9 @@ internal static class ArchitectCupCardCatalog
 
     internal static bool TryGet(string cardId, out ArchitectCupCardDefinition definition)
     {
+        if (VariantToCanonicalId.TryGetValue(cardId, out string? canonicalId))
+            cardId = canonicalId;
+
         definition = All.FirstOrDefault(candidate =>
             string.Equals(candidate.Id, cardId, StringComparison.Ordinal))!;
         return definition != null;

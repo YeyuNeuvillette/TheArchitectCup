@@ -26,4 +26,9 @@ public sealed class CardSettingsData
     public bool Phase4BoostAwayEnabled { get; set; } = true;
     public bool Phase4OneTwoPunchEnabled { get; set; } = true;
     public bool Phase4FightMeEnabled { get; set; } = true;
+    public bool Phase5EqualValueExchangeEnabled { get; set; } = true;
+    public bool Phase5MovableTypePrintingEnabled { get; set; } = true;
+    public bool Phase5Emc2Enabled { get; set; } = true;
+    public bool Phase5RedeployEnabled { get; set; } = true;
+    public bool Phase5BattleIntuitionEnabled { get; set; } = true;
 }

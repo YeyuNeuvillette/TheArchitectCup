@@ -15,6 +15,11 @@
     { "path": "TheArchitectCup/images/cards/the_architect_cup_card_press_forward.png", "width": 1000, "height": 760 },
     { "path": "TheArchitectCup/images/cards/the_architect_cup_card_three_legged_race.png", "width": 1000, "height": 760 },
     { "path": "TheArchitectCup/images/cards/the_architect_cup_card_vakuu_teaches_u_to_play.png", "width": 1000, "height": 760 },
+    { "path": "TheArchitectCup/images/cards/the_architect_cup_card_phase5_equal_value_exchange.png", "width": 1000, "height": 760 },
+    { "path": "TheArchitectCup/images/cards/the_architect_cup_card_phase5_movable_type_printing.png", "width": 1000, "height": 760 },
+    { "path": "TheArchitectCup/images/cards/the_architect_cup_card_phase5_emc2.png", "width": 1000, "height": 760 },
+    { "path": "TheArchitectCup/images/cards/the_architect_cup_card_phase5_redeploy.png", "width": 1000, "height": 760 },
+    { "path": "TheArchitectCup/images/cards/the_architect_cup_card_phase5_battle_intuition.png", "width": 1000, "height": 760 },
     { "path": "TheArchitectCup/images/powers/the_architect_cup_power_agitation_power.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/powers/the_architect_cup_power_burn_the_mountain_power.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/powers/the_architect_cup_power_coupling_power.png", "width": 64, "height": 64 },
@@ -23,6 +28,8 @@
     { "path": "TheArchitectCup/images/powers/the_architect_cup_power_press_forward_power.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/powers/the_architect_cup_power_three_legged_race_power.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/powers/the_architect_cup_power_vakuu_teaches_u_to_play_power.png", "width": 64, "height": 64 },
+    { "path": "TheArchitectCup/images/powers/the_architect_cup_power_emc2_power.png", "width": 64, "height": 64 },
+    { "path": "TheArchitectCup/images/powers/the_architect_cup_power_battle_intuition_power.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_agitation_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_burn_the_mountain_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_coupling_power.png", "width": 256, "height": 256 },
@@ -31,8 +38,11 @@
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_press_forward_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_three_legged_race_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_vakuu_teaches_u_to_play_power.png", "width": 256, "height": 256 },
+    { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_emc2_power.png", "width": 256, "height": 256 },
+    { "path": "TheArchitectCup/images/powers/big/the_architect_cup_power_battle_intuition_power.png", "width": 256, "height": 256 },
     { "path": "TheArchitectCup/images/ui/the_architect_cup_one.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/ui/the_architect_cup_two.png", "width": 64, "height": 64 },
-    { "path": "TheArchitectCup/images/ui/the_architect_cup_three.png", "width": 64, "height": 64 }
+    { "path": "TheArchitectCup/images/ui/the_architect_cup_three.png", "width": 64, "height": 64 },
+    { "path": "TheArchitectCup/images/ui/the_architect_cup_five.png", "width": 64, "height": 64 }
   ]
 }

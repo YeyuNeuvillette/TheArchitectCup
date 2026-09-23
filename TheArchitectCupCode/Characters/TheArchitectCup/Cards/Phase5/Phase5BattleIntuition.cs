@@ -7,10 +7,14 @@ using STS2RitsuLib.Interop.AutoRegistration;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using TheArchitectCup.Characters.TheArchitectCup.Powers;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Models;
+using TheArchitectCup.Api;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-public abstract class Phase5BattleIntuition() : ArchitectCupCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public abstract class Phase5BattleIntuitionBase() : ArchitectCupCard(
+    2, CardType.Power, CardRarity.Uncommon, TargetType.Self,
+    sharedPortraitId: ArchitectCupCardIds.Phase5BattleIntuition)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "紫幽梦魇Grimm"),
@@ -24,12 +28,10 @@ public abstract class Phase5BattleIntuition() : ArchitectCupCard(2, CardType.Pow
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        BattleIntuitionPower? power = await PowerCmd.Apply<BattleIntuitionPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
-        if(power != null)
-        {
-            power.SetEnergy(DynamicVars.Energy.BaseValue);
-            power.SetCards(DynamicVars.Cards.BaseValue);
-        }
+        await CreatureCmd.TriggerAnim(Owner.Creature, "PowerUp", Owner.Character.PowerUpAnimDelay);
+        BattleIntuitionPower power = (BattleIntuitionPower)ModelDb.Power<BattleIntuitionPower>().ToMutable();
+        power.Configure(DynamicVars.Energy.BaseValue, DynamicVars.Cards.BaseValue);
+        await PowerCmd.Apply(choiceContext, power, Owner.Creature, 1m, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
@@ -38,8 +40,8 @@ public abstract class Phase5BattleIntuition() : ArchitectCupCard(2, CardType.Pow
     }
 }
 
-[RegisterCard(typeof(IroncladCardPool))]
-public class Phase5BattleIntuitionIronclad() : Phase5BattleIntuition{}
+[RegisterCard(typeof(IroncladCardPool), FullPublicEntry = ArchitectCupCardIds.Phase5BattleIntuition)]
+public sealed class Phase5BattleIntuition() : Phase5BattleIntuitionBase { }
 
-[RegisterCard(typeof(SilentCardPool))]
-public class Phase5BattleIntuitionSilent() : Phase5BattleIntuition{}
+[RegisterCard(typeof(SilentCardPool), FullPublicEntry = ArchitectCupCardIds.Phase5BattleIntuitionSilent)]
+public sealed class Phase5BattleIntuitionSilent() : Phase5BattleIntuitionBase { }

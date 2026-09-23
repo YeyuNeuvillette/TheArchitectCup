@@ -34,5 +34,11 @@
   "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.title": "One-Two Punch",
   "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "Whenever you play a card this turn, swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.title": "Coolant",
-  "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.description": "Gain [blue]{Amount}[/blue] [gold]Focus[/gold] this turn."
+  "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.description": "Gain [blue]{Amount}[/blue] [gold]Focus[/gold] this turn.",
+  "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.title": "Battle Intuition",
+  "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.description": "The first time your Hand is empty each turn, gain Energy and draw cards.",
+  "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.smartDescription": "The first time your Hand is empty each turn, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.title": "Mass-Energy Conversion",
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.description": "Once each turn, you may play an Attack or Skill while you have insufficient Energy. Whenever you do, add Debris to your Draw Pile equal to the missing Energy.",
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "Once each turn, you may play an Attack or Skill while you have insufficient {energyPrefix:energyIcons(1)}. Whenever you do, add [gold]Debris[/gold] to your [gold]Draw Pile[/gold] equal to the missing {energyPrefix:energyIcons(1)}."
 }

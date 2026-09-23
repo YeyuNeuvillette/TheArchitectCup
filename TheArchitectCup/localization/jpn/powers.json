@@ -34,5 +34,11 @@
   "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.title": "ワンツーパンチ",
   "THE_ARCHITECT_CUP_POWER_ONE_TWO_PUNCH_POWER.description": "このターン中にカードをプレイするたび、自分の[gold]筋力[/gold]と[gold]敏捷性[/gold]を入れ替える。",
   "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.title": "冷却剤",
-  "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.description": "このターン、[gold]集中力[/gold]を[blue]{Amount}[/blue]得る。"
+  "THE_ARCHITECT_CUP_POWER_PHASE4_COOLANT_POWER.description": "このターン、[gold]集中力[/gold]を[blue]{Amount}[/blue]得る。",
+  "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.title": "戦闘直感",
+  "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.description": "各ターン初めて手札が空になった時、エナジーを得てカードを引く。",
+  "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.smartDescription": "各ターン初めて手札が空になった時、{Energy:energyIcons()}を得て、カードを[blue]{Cards}[/blue]枚引く。",
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.title": "質量エネルギー変換",
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.description": "各ターン1回、エナジーが不足していてもアタックまたはスキルをプレイできる。そうした時、不足分と同じ枚数のデブリを山札に加える。",
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "各ターン1回、{energyPrefix:energyIcons(1)}が不足していてもアタックまたはスキルをプレイできる。そうした時、不足した{energyPrefix:energyIcons(1)}と同じ枚数の[gold]デブリ[/gold]を[gold]山札[/gold]に加える。"
 }

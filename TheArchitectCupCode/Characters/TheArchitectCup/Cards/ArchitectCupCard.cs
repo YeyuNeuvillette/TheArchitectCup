@@ -9,5 +9,6 @@ public abstract class ArchitectCupCard(
     CardType type,
     CardRarity rarity,
     TargetType targetType,
-    bool shouldShowInCardLibrary = true)
-    : BaseCard(energyCost, type, rarity, targetType, shouldShowInCardLibrary);
+    bool shouldShowInCardLibrary = true,
+    string? sharedPortraitId = null)
+    : BaseCard(energyCost, type, rarity, targetType, shouldShowInCardLibrary, sharedPortraitId);

@@ -1,18 +1,24 @@
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
+using TheArchitectCup.Api;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-public abstract class Phase5EqualValueExchange() : ArchitectCupCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public abstract class Phase5EqualValueExchangeBase() : ArchitectCupCard(
+    2, CardType.Skill, CardRarity.Uncommon, TargetType.Self,
+    sharedPortraitId: ArchitectCupCardIds.Phase5EqualValueExchange)
 {
-    public bool playerFromHand { get; private set; } = false;
+    private bool _awaitingResultPile;
+    private bool _resolvingChoice;
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "AlwaysReady")
@@ -27,39 +33,73 @@ public abstract class Phase5EqualValueExchange() : ArchitectCupCard(2, CardType.
 
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
-        if (card == this && card.Pile != null && card.Pile.Type != PileType.None)
+        if (card != this)
+            return;
+
+        PileType newPileType = card.Pile?.Type ?? PileType.None;
+
+        if (oldPileType == PileType.Hand)
         {
-            if (oldPileType == PileType.Hand)
+            if (newPileType == PileType.Play)
             {
-                if(card.Pile.Type == PileType.Play)
-                {
-                    playerFromHand = true;
-                }
-                else
-                {
-                    await ChooseAndAdd(card.Pile.Type);
-                }
+                _awaitingResultPile = true;
+                return;
             }
-            else if (oldPileType == PileType.Play && playerFromHand)
-            {
-                playerFromHand = false;
-                await ChooseAndAdd(card.Pile.Type);
-            }
+
+            await ChooseFromDestinationPile(newPileType);
+            return;
+        }
+
+        if (oldPileType == PileType.Play && _awaitingResultPile)
+        {
+            _awaitingResultPile = false;
+            await ChooseFromDestinationPile(newPileType);
         }
     }
 
-    private async Task ChooseAndAdd(PileType type) //注意：使用了ThrowingPlayerChoiceContext()
+    private async Task ChooseFromDestinationPile(PileType pileType)
     {
-        CardModel? card = (await CardSelectCmd.FromCombatPile(new ThrowingPlayerChoiceContext(), type.GetPile(Owner), Owner, new CardSelectorPrefs(SelectionScreenPrompt, 1))).FirstOrDefault();
-        if(card != null)
+        if (_resolvingChoice ||
+            pileType is PileType.None or PileType.Hand or PileType.Play or PileType.Deck ||
+            !LocalContext.NetId.HasValue)
+            return;
+
+        CardPile destinationPile = pileType.GetPile(Owner);
+        if (destinationPile.Cards.Count == 0)
+            return;
+
+        HookPlayerChoiceContext choiceContext = new(
+            this,
+            LocalContext.NetId.Value,
+            Owner.Creature.CombatState,
+            GameActionType.Combat);
+        Task task = ResolveChoice(choiceContext, destinationPile);
+        await choiceContext.AssignTaskAndWaitForPauseOrCompletion(task);
+    }
+
+    private async Task ResolveChoice(PlayerChoiceContext choiceContext, CardPile destinationPile)
+    {
+        _resolvingChoice = true;
+        try
         {
-            await CardPileCmd.Add(card, PileType.Hand);
+            CardModel? selected = (await CardSelectCmd.FromCombatPile(
+                choiceContext,
+                destinationPile,
+                Owner,
+                new CardSelectorPrefs(SelectionScreenPrompt, 1))).FirstOrDefault();
+
+            if (selected != null)
+                await CardPileCmd.Add(selected, PileType.Hand);
+        }
+        finally
+        {
+            _resolvingChoice = false;
         }
     }
 }
 
-[RegisterCard(typeof(SilentCardPool))]
-public class Phase5EqualValueExchangeSilent() : Phase5EqualValueExchange{}
+[RegisterCard(typeof(SilentCardPool), FullPublicEntry = ArchitectCupCardIds.Phase5EqualValueExchange)]
+public sealed class Phase5EqualValueExchange() : Phase5EqualValueExchangeBase { }
 
-[RegisterCard(typeof(RegentCardPool))]
-public class Phase5EqualValueExchangeRegent() : Phase5EqualValueExchange{}
+[RegisterCard(typeof(RegentCardPool), FullPublicEntry = ArchitectCupCardIds.Phase5EqualValueExchangeRegent)]
+public sealed class Phase5EqualValueExchangeRegent() : Phase5EqualValueExchangeBase { }
