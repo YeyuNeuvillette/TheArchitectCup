@@ -40,5 +40,10 @@
     "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.smartDescription": "你每回合首次没有手牌时，获得{Energy:energyIcons()}并抽[blue]{Cards}[/blue]张牌。",
     "THE_ARCHITECT_CUP_POWER_EMC2_POWER.title": "质能转换",
     "THE_ARCHITECT_CUP_POWER_EMC2_POWER.description": "每回合一次，你可以在能量不足时打出攻击牌或技能牌。\n每当你这样做时，向抽牌堆中加入等同于不足的能量的[gold]碎屑[/gold]。",
-    "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "每回合一次，你可以在{energyPrefix:energyIcons(1)}不足时打出攻击牌或技能牌。\n每当你这样做时，向抽牌堆中加入等同于不足的{energyPrefix:energyIcons(1)}数的[gold]碎屑[/gold]。"
+    "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "每回合一次，你可以在{energyPrefix:energyIcons(1)}不足时打出攻击牌或技能牌。\n每当你这样做时，向抽牌堆中加入等同于不足的{energyPrefix:energyIcons(1)}数的[gold]碎屑[/gold]。",
+    "THE_ARCHITECT_CUP_POWER_AUTOMATIC_WEAPON_POWER.title": "自动武器",
+    "THE_ARCHITECT_CUP_POWER_AUTOMATIC_WEAPON_POWER.description": "每当你抽到一张[gold]不能被打出[/gold]的攻击牌，对所有敌人造成其伤害。",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.title": "超新星",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.description": "本回合，将你[gold]手牌[/gold]的打出所需耗能转化为等量所需耗{singleStarIcon}。",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.smartDescription": "本回合，将你[gold]手牌[/gold]的打出所需耗能转化为等量所需耗{singleStarIcon}。"
 }
