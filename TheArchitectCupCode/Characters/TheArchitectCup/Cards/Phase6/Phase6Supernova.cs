@@ -10,7 +10,7 @@ using TheArchitectCup.Characters.TheArchitectCup.Powers;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-[RegisterCard(typeof(RegentCardPool))]
+[RegisterCard(typeof(RegentCardPool), FullPublicEntry = global::TheArchitectCup.Api.ArchitectCupCardIds.Phase6Supernova)]
 public sealed class Phase6Supernova() : ArchitectCupCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [

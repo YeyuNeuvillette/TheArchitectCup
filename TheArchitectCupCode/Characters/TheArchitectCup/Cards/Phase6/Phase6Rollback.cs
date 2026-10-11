@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-[RegisterCard(typeof(DefectCardPool))]
+[RegisterCard(typeof(DefectCardPool), FullPublicEntry = global::TheArchitectCup.Api.ArchitectCupCardIds.Phase6Rollback)]
 public sealed class Phase6Rollback() : ArchitectCupCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [

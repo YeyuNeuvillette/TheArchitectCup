@@ -2,6 +2,13 @@ namespace TheArchitectCup.Settings;
 
 public sealed class CardSettingsData
 {
+    public bool Phase6RollbackEnabled { get; set; } = true;
+    public bool Phase6HasteEnabled { get; set; } = true;
+    public bool Phase6BestPartnerEnabled { get; set; } = true;
+    public bool Phase6ApotheosisEnabled { get; set; } = true;
+    public bool Phase6UncertaintyEnabled { get; set; } = true;
+    public bool Phase6AutomaticWeaponEnabled { get; set; } = true;
+    public bool Phase6SupernovaEnabled { get; set; } = true;
     public bool CursedHandkerchiefEnabled { get; set; } = true;
     public bool ThreeLeggedRaceEnabled { get; set; } = true;
     public bool PingPongEnabled { get; set; } = true;

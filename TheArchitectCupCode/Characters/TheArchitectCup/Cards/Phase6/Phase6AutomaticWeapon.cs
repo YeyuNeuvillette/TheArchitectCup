@@ -12,7 +12,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-[RegisterCard(typeof(ColorlessCardPool))]
+[RegisterCard(typeof(ColorlessCardPool), FullPublicEntry = global::TheArchitectCup.Api.ArchitectCupCardIds.Phase6AutomaticWeapon)]
 public sealed class Phase6AutomaticWeapon() : ArchitectCupCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [

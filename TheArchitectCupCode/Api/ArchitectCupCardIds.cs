@@ -3,6 +3,13 @@ namespace TheArchitectCup.Api;
 /// <summary>Stable model ID entries for cards provided by The Architect Cup.</summary>
 public static class ArchitectCupCardIds
 {
+    public const string Phase6Rollback = "THE_ARCHITECT_CUP_CARD_PHASE6_ROLLBACK";
+    public const string Phase6Haste = "THE_ARCHITECT_CUP_CARD_PHASE6_HASTE";
+    public const string Phase6BestPartner = "THE_ARCHITECT_CUP_CARD_PHASE6_BEST_PARTNER";
+    public const string Phase6Apotheosis = "THE_ARCHITECT_CUP_CARD_PHASE6_APOTHEOSIS";
+    public const string Phase6Uncertainty = "THE_ARCHITECT_CUP_CARD_PHASE6_UNCERTAINTY";
+    public const string Phase6AutomaticWeapon = "THE_ARCHITECT_CUP_CARD_PHASE6_AUTOMATIC_WEAPON";
+    public const string Phase6Supernova = "THE_ARCHITECT_CUP_CARD_PHASE6_SUPERNOVA";
     public const string CursedHandkerchief = "THE_ARCHITECT_CUP_CARD_CURSED_HANDKERCHIEF";
     public const string ThreeLeggedRace = "THE_ARCHITECT_CUP_CARD_THREE_LEGGED_RACE";
     public const string PingPong = "THE_ARCHITECT_CUP_CARD_PING_PONG";

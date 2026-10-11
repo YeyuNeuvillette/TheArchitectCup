@@ -94,5 +94,6 @@
     "THE_ARCHITECT_CUP_CARD_PHASE6_AUTOMATIC_WEAPON.selectionScreenPrompt": "为至多{Cards:diff()}张牌添加[gold]不能被打出[/gold]。",
     "THE_ARCHITECT_CUP_CARD_PHASE6_AUTOMATIC_WEAPON.description": "为[gold]抽牌堆[/gold]的至多{Cards:diff()}张攻击牌添加[gold]不能被打出[/gold]。每当你抽到一张[gold]不能被打出[/gold]的攻击牌，对所有敌人造成其伤害。",
     "THE_ARCHITECT_CUP_CARD_PHASE6_SUPERNOVA.title": "超新星",
-    "THE_ARCHITECT_CUP_CARD_PHASE6_SUPERNOVA.description": "获得{Stars:diff()}。\n本回合，将你[gold]手牌[/gold]的打出所需耗能转化为等量所需耗{singleStarIcon}。"
+    "THE_ARCHITECT_CUP_CARD_PHASE6_SUPERNOVA.description": "获得{Stars:diff()}。\n本回合，将你[gold]手牌[/gold]的打出所需耗能转化为等量所需耗{singleStarIcon}。",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_UNCERTAINTY.selectionScreenPrompt": "选择2张牌交换费用。"
 }

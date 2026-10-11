@@ -40,5 +40,10 @@
   "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.smartDescription": "The first time your Hand is empty each turn, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
   "THE_ARCHITECT_CUP_POWER_EMC2_POWER.title": "Mass-Energy Conversion",
   "THE_ARCHITECT_CUP_POWER_EMC2_POWER.description": "Once each turn, you may play an Attack or Skill while you have insufficient Energy. Whenever you do, add Debris to your Draw Pile equal to the missing Energy.",
-  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "Once each turn, you may play an Attack or Skill while you have insufficient {energyPrefix:energyIcons(1)}. Whenever you do, add [gold]Debris[/gold] to your [gold]Draw Pile[/gold] equal to the missing {energyPrefix:energyIcons(1)}."
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "Once each turn, you may play an Attack or Skill while you have insufficient {energyPrefix:energyIcons(1)}. Whenever you do, add [gold]Debris[/gold] to your [gold]Draw Pile[/gold] equal to the missing {energyPrefix:energyIcons(1)}.",
+    "THE_ARCHITECT_CUP_POWER_AUTOMATIC_WEAPON_POWER.title": "Automatic Weapon",
+    "THE_ARCHITECT_CUP_POWER_AUTOMATIC_WEAPON_POWER.description": "Whenever you draw an [gold]Unplayable[/gold] Attack, deal its damage to ALL enemies.",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.title": "Supernova",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.description": "This turn, convert the Energy required to play cards in your [gold]Hand[/gold] into an equal {singleStarIcon} cost.",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.smartDescription": "This turn, convert the Energy required to play cards in your [gold]Hand[/gold] into an equal {singleStarIcon} cost."
 }

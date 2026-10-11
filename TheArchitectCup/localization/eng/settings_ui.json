@@ -68,5 +68,20 @@
     "THE_ARCHITECT_CUP_CARD_PHASE5_REDEPLOY_TOGGLE": "Redeploy",
     "THE_ARCHITECT_CUP_CARD_PHASE5_REDEPLOY_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 尖尖的刀",
     "THE_ARCHITECT_CUP_CARD_PHASE5_BATTLE_INTUITION_TOGGLE": "Battle Intuition",
-    "THE_ARCHITECT_CUP_CARD_PHASE5_BATTLE_INTUITION_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 紫幽梦魇Grimm"
+    "THE_ARCHITECT_CUP_CARD_PHASE5_BATTLE_INTUITION_AUTHOR": "Disabling this card will prevent it from appearing in card pools. Author: 紫幽梦魇Grimm",
+    "THE_ARCHITECT_CUP_SECTION_PHASE6": "Phase 6",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_ROLLBACK_TOGGLE": "Rollback",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_ROLLBACK_AUTHOR": "Disable to remove this card from its card pool. Author: 紫幽梦魇Grimm",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_HASTE_TOGGLE": "Haste",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_HASTE_AUTHOR": "Disable to remove this card from its card pool. Author: 苑风",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_BEST_PARTNER_TOGGLE": "Best Partner",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_BEST_PARTNER_AUTHOR": "Disable to remove this card from its card pool. Author: 起司",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_APOTHEOSIS_TOGGLE": "Apotheosis???",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_APOTHEOSIS_AUTHOR": "Disable to remove this card from its card pool. Author: 登高",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_UNCERTAINTY_TOGGLE": "Uncertainty",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_UNCERTAINTY_AUTHOR": "Disable to remove this card from its card pool. Author: 🍄🍈.",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_AUTOMATIC_WEAPON_TOGGLE": "Automatic Weapon",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_AUTOMATIC_WEAPON_AUTHOR": "Disable to remove this card from its card pool. Author: AlwaysReady",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_SUPERNOVA_TOGGLE": "Supernova",
+    "THE_ARCHITECT_CUP_CARD_PHASE6_SUPERNOVA_AUTHOR": "Disable to remove this card from its card pool. Author: 血色鸢尾花"
 }

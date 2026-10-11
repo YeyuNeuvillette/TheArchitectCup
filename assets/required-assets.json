@@ -43,6 +43,18 @@
     { "path": "TheArchitectCup/images/ui/the_architect_cup_one.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/ui/the_architect_cup_two.png", "width": 64, "height": 64 },
     { "path": "TheArchitectCup/images/ui/the_architect_cup_three.png", "width": 64, "height": 64 },
-    { "path": "TheArchitectCup/images/ui/the_architect_cup_five.png", "width": 64, "height": 64 }
+    { "path": "TheArchitectCup/images/ui/the_architect_cup_five.png", "width": 64, "height": 64 },
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_rollback.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_haste.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_best_partner.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_apotheosis.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_uncertainty.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_automatic_weapon.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/cards/the_architect_cup_card_phase6_supernova.png","width":1000,"height":760,"optional":true},
+    {"path":"TheArchitectCup/images/powers/the_architect_cup_power_automatic_weapon_power.png","width":64,"height":64,"optional":true},
+    {"path":"TheArchitectCup/images/powers/big/the_architect_cup_power_automatic_weapon_power.png","width":256,"height":256,"optional":true},
+    {"path":"TheArchitectCup/images/powers/the_architect_cup_power_supernova_power.png","width":64,"height":64,"optional":true},
+    {"path":"TheArchitectCup/images/powers/big/the_architect_cup_power_supernova_power.png","width":256,"height":256,"optional":true},
+    {"path":"TheArchitectCup/images/ui/the_architect_cup_six.png","width":64,"height":64,"optional":true}
   ]
 }

@@ -10,6 +10,7 @@ using TheArchitectCup.Characters.TheArchitectCup;
 using TheArchitectCup.Extensions;
 using TheArchitectCup.Features.Rewards;
 using TheArchitectCup.Settings;
+using TheArchitectCup.Infrastructure;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace TheArchitectCup;
@@ -90,6 +91,18 @@ public partial class MainFile : Node
                 },
             ]);
 
+        registry.RegisterCardLibraryCompendiumSharedPoolFilter<ArchitectCupPhase6Pool>(
+            "ARCHITECT_CUP_PHASE6",
+            AssetPathResolver.ResolveExistingPath(
+                "ui/the_architect_cup_six.png".ImagePath(),
+                "ui/the_architect_cup_one.png".ImagePath()),
+            [
+                new()
+                {
+                    VanillaFilterAnchorUniqueName = CardLibraryCompendiumVanillaFilterNames.ColorlessPool,
+                    Relation = CardLibraryCompendiumFilterInsertRelation.After,
+                },
+            ]);
         Logger.Info("TheArchitectCup mod initialized successfully");
     }
 

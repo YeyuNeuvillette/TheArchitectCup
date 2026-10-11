@@ -9,11 +9,12 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-[RegisterCard(typeof(ColorlessCardPool))]
+[RegisterCard(typeof(ColorlessCardPool), FullPublicEntry = global::TheArchitectCup.Api.ArchitectCupCardIds.Phase6Apotheosis)]
 public sealed class Phase6Apotheosis() : ArchitectCupCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         new HoverTip(new LocString("static_hover_tips", "AUTHOR.title"), "登高"),
+        new HoverTip(new LocString("static_hover_tips", "CHAMPION_PHASE6.title"), new LocString("static_hover_tips", "CHAMPION_PHASE6.description")),
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
@@ -26,7 +27,7 @@ public sealed class Phase6Apotheosis() : ArchitectCupCard(1, CardType.Skill, Car
         }
         if (!IsUpgraded)
         {
-            foreach (CardModel card in Owner.PlayerCombatState.AllCards)
+            foreach (CardModel card in Owner.PlayerCombatState.AllCards.ToArray())
             {
                 if (card.IsUpgradable)
                 {
@@ -36,7 +37,7 @@ public sealed class Phase6Apotheosis() : ArchitectCupCard(1, CardType.Skill, Car
         }
         else
         {
-            foreach (CardModel card in Owner.PlayerCombatState.AllCards.Where(c => c.IsUpgraded))
+            foreach (CardModel card in Owner.PlayerCombatState.AllCards.Where(c => c.IsUpgraded).ToArray())
             {
                 CardCmd.Downgrade(card);
             }

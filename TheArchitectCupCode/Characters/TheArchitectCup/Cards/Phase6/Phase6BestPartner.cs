@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 
 namespace TheArchitectCup.Characters.TheArchitectCup.Cards;
 
-[RegisterCard(typeof(NecrobinderCardPool))]
+[RegisterCard(typeof(NecrobinderCardPool), FullPublicEntry = global::TheArchitectCup.Api.ArchitectCupCardIds.Phase6BestPartner)]
 public sealed class Phase6BestPartner() : ArchitectCupCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
@@ -32,6 +32,7 @@ public sealed class Phase6BestPartner() : ArchitectCupCard(1, CardType.Skill, Ca
         await CreatureCmd.TriggerAnim(Owner.Creature, Necrobinder.GetSummonAnimIfApplicable(Owner.Character), Necrobinder.GetSummonDelayIfApplicable(Owner.Character));
         await OstyCmd.Summon(choiceContext, Owner, DynamicVars.Summon.BaseValue, this);
         IReadOnlyList<CardModel> cards = Owner.PlayerCombatState.AllCards.Where(c => c.Tags.Contains(CardTag.OstyAttack) && ModelDb.Enchantment<PerfectFit>().CanEnchant(c)).ToList();
+        if (cards.Count == 0) return;
         CardModel? card = (await CardSelectCmd.FromSimpleGrid(choiceContext, cards, Owner, new CardSelectorPrefs(SelectionScreenPrompt, 1))).FirstOrDefault();
         if (card != null)
         {

@@ -40,5 +40,10 @@
   "THE_ARCHITECT_CUP_POWER_BATTLE_INTUITION_POWER.smartDescription": "各ターン初めて手札が空になった時、{Energy:energyIcons()}を得て、カードを[blue]{Cards}[/blue]枚引く。",
   "THE_ARCHITECT_CUP_POWER_EMC2_POWER.title": "質量エネルギー変換",
   "THE_ARCHITECT_CUP_POWER_EMC2_POWER.description": "各ターン1回、エナジーが不足していてもアタックまたはスキルをプレイできる。そうした時、不足分と同じ枚数のデブリを山札に加える。",
-  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "各ターン1回、{energyPrefix:energyIcons(1)}が不足していてもアタックまたはスキルをプレイできる。そうした時、不足した{energyPrefix:energyIcons(1)}と同じ枚数の[gold]デブリ[/gold]を[gold]山札[/gold]に加える。"
+  "THE_ARCHITECT_CUP_POWER_EMC2_POWER.smartDescription": "各ターン1回、{energyPrefix:energyIcons(1)}が不足していてもアタックまたはスキルをプレイできる。そうした時、不足した{energyPrefix:energyIcons(1)}と同じ枚数の[gold]デブリ[/gold]を[gold]山札[/gold]に加える。",
+    "THE_ARCHITECT_CUP_POWER_AUTOMATIC_WEAPON_POWER.title": "自動兵器",
+    "THE_ARCHITECT_CUP_POWER_AUTOMATIC_WEAPON_POWER.description": "[gold]使用不可[/gold]のアタックを引くたび、敵全体にそのカードのダメージを与える。",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.title": "超新星",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.description": "このターン、[gold]手札[/gold]のプレイに必要なエナジーを同数の{singleStarIcon}コストに変換する。",
+    "THE_ARCHITECT_CUP_POWER_SUPERNOVA_POWER.smartDescription": "このターン、[gold]手札[/gold]のプレイに必要なエナジーを同数の{singleStarIcon}コストに変換する。"
 }
